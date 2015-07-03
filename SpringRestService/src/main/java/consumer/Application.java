@@ -7,8 +7,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.client.RestTemplate;
 
-import requester.SpringRestServiceApplication;
-
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 	
@@ -20,7 +18,7 @@ public class Application implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception { 
-		log.info("This is working guys!");
+		log.info("This is still working guys!");
 		RestTemplate restTemplate = new RestTemplate();
 		Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
 		log.info(quote.toString());
