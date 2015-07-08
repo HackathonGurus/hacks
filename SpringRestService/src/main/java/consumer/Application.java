@@ -18,7 +18,7 @@ public class Application implements CommandLineRunner {
 	
 	@Override
 	public void run(String... strings) throws Exception { 
-		log.info("This is still working guys!");
+		log.info("This is still still working guys!");
 		RestTemplate restTemplate = new RestTemplate();
 		Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
 		log.info(quote.toString());
