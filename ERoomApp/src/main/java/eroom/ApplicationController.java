@@ -17,8 +17,9 @@ public class ApplicationController {
 	}
 	
 	private String context(String name) {
-		if(!name.equals("Demo User")) 
+		if(!name.equals("Demo User")) {
 			return name + " The day is bright and sunny.";
+		}
 		return name;
 	}
 }
