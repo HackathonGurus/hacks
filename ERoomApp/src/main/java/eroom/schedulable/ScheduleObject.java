@@ -2,7 +2,7 @@ package eroom.schedulable;
 
 import java.util.HashMap;
 
-import eroom.Utility.Utils;
+import eroom.Utils;
 import eroom.calendar.Appointment;
 import eroom.calendar.CalendarDay;
 

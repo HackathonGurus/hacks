@@ -2,7 +2,7 @@ package eroom.calendar;
 
 import java.util.List;
 
-import eroom.Utility.Utils;
+import eroom.Utils;
 
 /**
  * Appointment class - used to create and find calendar appointments.
