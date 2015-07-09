@@ -2,7 +2,7 @@ package eroom.calendar;
 
 import java.util.*;
 
-import eroom.Utils;
+import eroom.Utility.Utils;
 import eroom.schedulable.Room;
 import eroom.schedulable.ScheduleObject;
 import eroom.schedulable.User;

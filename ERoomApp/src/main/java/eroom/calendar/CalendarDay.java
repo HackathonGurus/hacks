@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import eroom.Utils;
+import eroom.Utility.Utils;;
 
 /**
  * Models one calendar for one day (i.e. the schedule for one room or user for a single day)
