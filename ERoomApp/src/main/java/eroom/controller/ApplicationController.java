@@ -9,7 +9,7 @@ public class ApplicationController {
 	
 	private static final String template = "Welcome to E-Room, %s!";
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/example")
 	public String indexPage(@RequestParam(value="name", defaultValue="Demo User") String name) {
 		return String.format(template,
 				context(name) + " <br>Try this link - http://localhost:8080/?name='{your name}'");		
