@@ -1,6 +1,9 @@
 package eroom.calendar;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 import eroom.Utility.Utils;
 import eroom.schedulable.Room;
@@ -234,7 +237,7 @@ public class Calendar {
      * @param attendees the name of the invitees
      * @return the best suggested appointment
      */
-    public Appointment getSuggestedAppointment(int day, String organiser, String... attendees) {
+    public List<Appointment> getSuggestedAppointment(int day, String organiser, String... attendees) {
 
         String[] allAttendees = attendees.clone();
         allAttendees[allAttendees.length] = organiser;
@@ -248,23 +251,24 @@ public class Calendar {
          * room with capacity to hold all attendees at a time when all attendees are free is the best appointment to
          * book
          */
+        List<Appointment> suggestedAppointments = new ArrayList<Appointment>();
         for (Integer slotIndex : commonFreeSlots) {
             for (Room room : roomsWithCapacity) {
 
                 if (room.getDays().get(day).isSlotFree(slotIndex)) {
                     List<String> attendeeList = new ArrayList<String>();
                     Collections.addAll(attendeeList, attendees);
-                    return new Appointment()
+                    suggestedAppointments.add(new Appointment()
                                     .withDay(day)
                                     .withTimeSlot(slotIndex)
                                     .withRoom(room.getRoomName())
                                     .withOrganiser(organiser)
-                                    .withRequestedAttendees(attendeeList);
+                                    .withRequestedAttendees(attendeeList));
                 }
             }
         }
 
-        return null;
+        return suggestedAppointments;
     }
 
     /**
