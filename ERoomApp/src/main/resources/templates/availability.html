@@ -1,52 +1,49 @@
-<<<<<<< Upstream, based on branch 'master' of
-https://github.com/HackathonGurus/hacks.git
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-<title>ERoomApp</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<!--  External Style -->
-<link rel="stylesheet"
-	href="http://daneden.github.io/animate.css/animate.min.css" />
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" />
-
-<!--Custom CSS-->
-<link rel="stylesheet" href="./css/style.css" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-</head>
-<body>
-
+  <head>
+    <title>ERoomApp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--  External Style -->	
+		<link rel="stylesheet" href="http://daneden.github.io/animate.css/animate.min.css" />
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" />	
+		
+	<!--Custom CSS-->
+		<link rel="stylesheet" href="./css/style.css" />	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+  </head>
+  <body>
+  
 	<div class='grid animated flipInX'>
-		<h2>Availability</h2>
-
-		<table class="table table-striped">
-			<tr>
-				<td>Room Name</td>
-				<td>Booked For</td>
-				<td>Requestor</td>
-				<td>Time</td>
-			</tr>
-
-			<tr th:each="apt : ${apointments}">
-				<td th:text="${apt.room}">Room X</td>
-				<td th:text="${apt.description}">21232</td>
-				<td th:text="${apt.organiser}">Billy</td>
-				<td></td>
-			</tr>
-
-
-
-		</table>
-
-		<a class="btn btn-primary" href="/welcome">Go Home</a>
-
+	    <h2>Availability</h2>
+	    
+	    <table class="table table-striped">
+	    	<tr>
+	    		<td>Room Name</td>
+	    		<td>Booked For</td>
+	    		<td>Requestor</td>
+	    		<td>Time</td>
+	    		<td>*</td>
+	    	</tr>
+	    	<tr th:each="room : ${rooms}">
+	    		<td>Room X</td>
+	    		<td>21232</td>
+	    		<td>Billy</td>
+	    		<td>March 24, 1874 11:20</td>
+	    		<td>*</td>
+	    	
+	    	</tr>
+	    	
+	    	
+	    
+	    </table>
+	    
+	    <a class="btn btn-primary" href="/welcome">Go Home</a>
+	 
 	</div>
 
 
-</body>
+  </body>
 
 </html>
