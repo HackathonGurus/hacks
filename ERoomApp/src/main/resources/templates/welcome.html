@@ -10,21 +10,54 @@
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" />	
 	<!--Custom CSS-->
 		<link rel="stylesheet" href="./css/style.css" />	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 				
 	<!--  External JavaScript -->		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>	
   </head>
   <body>
   
-
+	<div class='grid animated flipInX'>
+		<h2>Welcome, user!</h2>
+		<h2>The current time is: </h2>
+		
+		<div>
+			<h3>Info</h3>
+			<p>Recently booked</p>
+			<div>
+				<table class="table table-striped">
+			    	<tr>
+			    		<td>Room Name</td>
+			    		<td>Booked For</td>
+			    		<td>Requestor</td>
+			    		<td>Time</td>
+			    		<td>*</td>
+			    	</tr>
+			    	<tr th:each="room : ${rooms}">
+			    		<td>Room X</td>
+			    		<td>21232</td>
+			    		<td>Billy</td>
+			    		<td>March 24, 1874 11:20</td>
+			    		<td>*</td>
+			    	</tr>
+		    	</table>
+			</div>
+			<p>Room Name</p>
+			<p>Time and Date</p>
+			<p>Brief info</p>
+		</div>
+		
+		<div>Ticker box here</div>
+		
+		<div>
+		  <a class="btn btn-primary" href="#" >Quick Book</a>
+		  <a class="btn btn-primary" href="/avail" >Availability</a>
+		  <a class="btn btn-primary" href="#" >Best Availability</a>
+		  <a class="btn btn-primary" href="#" >Log Out</a>
+		</div>
+		
+	</div>
 	  
-	  <div class='grid animated flipInX'>
-	  
-	    <h2>Welcome, user!</h2>
-	  	<p><a class="btn btn-primary" href="/test">Go to page list</a></p>
-	  </div>
-	  
-
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   </body>
