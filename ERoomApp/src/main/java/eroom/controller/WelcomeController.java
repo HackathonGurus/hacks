@@ -9,9 +9,7 @@ import eroom.Links;
 public class WelcomeController {
 	
 	@RequestMapping(Links.WELCOME)
-	public String welcomeHome()  {
-		
-		
+	public String welcomeHome()  {		
 		return "welcome";
 	}
 	
