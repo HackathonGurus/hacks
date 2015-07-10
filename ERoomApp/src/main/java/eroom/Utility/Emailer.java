@@ -53,9 +53,9 @@ public class Emailer {
      * @param recipientEmailAddress - really?
      * @param msgSubject - have a guess
      * @param msgBody - i wonder what this is
-     * @throws AddressException - fuck
-     * @throws MessagingException - fuckity
-     * @throws IOException - fuuuuuuuuu-
+     * @throws AddressException -
+     * @throws MessagingException -
+     * @throws IOException -
      */
     public void Email(String recipientEmailAddress, String msgSubject, String msgBody) throws AddressException, MessagingException, IOException {
     	
