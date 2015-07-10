@@ -8,10 +8,10 @@ import java.util.Arrays;
 public class EmptyAppointment extends Appointment {
 
     public EmptyAppointment() {
-        setOrganiser("");
-        setDescription("");
-        setRequestedAttendees(Arrays.asList(""));
-        setRoom("");
+        setOrganiser("-");
+        setDescription("-");
+        setRequestedAttendees(Arrays.asList("-"));
+        setRoom("-");
     }
 
     /**
