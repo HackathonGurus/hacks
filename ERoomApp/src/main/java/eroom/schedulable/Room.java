@@ -1,5 +1,7 @@
 package eroom.schedulable;
 
+import java.util.Set;
+
 /**
  * Class models a Room. Calendar logic is contained in the superclass
  */
@@ -13,6 +15,8 @@ public class Room extends ScheduleObject implements Comparable<Room> {
 
     /** A brief description of the room (e.g. contains a phone, a TV, has internet access */
     private String description;
+    
+    private Set<RoomFeature> features;
 
     public Room(String roomName, int capacity) {
         super();
@@ -57,5 +61,15 @@ public class Room extends ScheduleObject implements Comparable<Room> {
             return 0;
         }
         return 1;
+    }
+    
+    public String getFeaturesAsString() {
+        StringBuilder featureString = new StringBuilder();
+        for (RoomFeature feature : features) {
+            featureString.append(feature.getDisplayName());
+            featureString.append(", ");
+        }
+        featureString.replace(featureString.length() - 3, featureString.length() - 1, "");
+        return featureString.toString();
     }
 }
