@@ -11,6 +11,7 @@ public final class Links {
 	public static final String QUICK_LINK_TEST = "/test";
 	public static final String BOOKING_DETAILS = "/bookingDetails";
 	public static final String ROOM_AVAILABILITY = "/room";
+	public static final String ERROR = "/error";
 	
 	private static List<String> links  = new ArrayList<String>();
 		
@@ -21,6 +22,7 @@ public final class Links {
 		links.add(WELCOME);
 		links.add(BOOKING_DETAILS);
 		links.add(ROOM_AVAILABILITY);
+		links.add(ERROR);
 	}	
 	
 	public static List<String> getLinks() {

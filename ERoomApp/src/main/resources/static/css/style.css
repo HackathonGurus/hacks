@@ -10,6 +10,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body.error {
+	background: #000000 url("http://www.fantom-xp.com/wallpapers/32/Apple_iTunes_Podcasts_Lost.jpg") no-repeat center center fixed;
+}
+
 body::before {
   z-index: -1;
   content: '';
