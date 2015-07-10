@@ -52,7 +52,7 @@ public class Utils {
      * @throws IllegalArgumentException if time slot is not on the range [0, 16)
      */
     public static void checkTimeSlotIsValid(int timeSlot) {
-        if (timeSlot < 0 || timeSlot >= MAX_NUMBER_OF_DAYS) {
+        if (timeSlot < 0 || timeSlot >= MAX_NUMBER_OF_TIME_SLOTS) {
             throw new IllegalArgumentException("Time slot " + timeSlot +  " is invalid - must be between zero and " + MAX_NUMBER_OF_TIME_SLOTS);
         }
     }
@@ -215,21 +215,40 @@ public class Utils {
     
     public String dayToDateString(int day) {
 		switch (day) {
-		case 0://Monday
+		case 0://Monday.
 			return "20150713T";
-		case 1://Tuesday
+		case 1://Tuesday.
 			return "20150714T";
-		case 2://Happy Days
+		case 2://Happy Days..
 			return "20150715T";
-		case 3://Thursday
+		case 3://Thursday.
 			return "20150716T";
-		case 4://Friday
+		case 4://Friday.
 			return "20150717T";
 
 		default:
 			return "20150713";
 		}
     }
+    
+    public String iCalendarDTStart(int day, int timeToStart) {
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append(dayToDateString(day));
+		sb.append(slotToStartTimeString(timeToStart));
+
+		return sb.toString();
+    }
+
+    public String iCalendarDTEnd(int day, int timeToStart) {
+    	StringBuffer sb = new StringBuffer();
+    	
+    	sb.append(dayToDateString(day));
+    	sb.append(slotToStartTimeString(timeToStart));
+    	
+    	return sb.toString();
+    }
+    
     
     
 }
