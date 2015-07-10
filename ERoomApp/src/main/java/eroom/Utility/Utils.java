@@ -3,6 +3,8 @@ package eroom.Utility;
 import java.util.Arrays;
 import java.util.List;
 
+import org.joda.time.DateTime;
+
 import eroom.schedulable.Room;
 
 /**
@@ -131,7 +133,7 @@ public class Utils {
         }
     }
     
-    public String slotToStartTimeString(int slotNo) {
+    public static String slotToStartTimeString(int slotNo) {
 		//slot 0 - 9:00
     	switch (slotNo) {
 
@@ -172,7 +174,7 @@ public class Utils {
 		}
     }
     
-    public String slotToEndTimeString(int slotNo) {
+    public static String slotToEndTimeString(int slotNo) {
     	//slot 0 - 9:00
     	switch (slotNo) {
     	
@@ -213,7 +215,7 @@ public class Utils {
     	}
     }
     
-    public String dayToDateString(int day) {
+    public static String dayToDateString(int day) {
 		switch (day) {
 		case 0://Monday.
 			return "20150713T";
@@ -231,7 +233,7 @@ public class Utils {
 		}
     }
     
-    public String iCalendarDTStart(int day, int timeToStart) {
+    public static String iCalendarDTStart(int day, int timeToStart) {
 		StringBuffer sb = new StringBuffer();
 		
 		sb.append(dayToDateString(day));
@@ -240,7 +242,7 @@ public class Utils {
 		return sb.toString();
     }
 
-    public String iCalendarDTEnd(int day, int timeToStart) {
+    public static String iCalendarDTEnd(int day, int timeToStart) {
     	StringBuffer sb = new StringBuffer();
     	
     	sb.append(dayToDateString(day));
@@ -249,6 +251,104 @@ public class Utils {
     	return sb.toString();
     }
     
+    public static DateTime getSlotStartAsDateTime(int dayIndex, int slotIndex) {
+        
+        int year = 2015;
+        int month = 7;
+        int day = 13;
+        switch (dayIndex) {
+            case 0: 
+                day = 13;
+                break;
+            case 1: 
+                day = 14;
+                break;
+            case 2: 
+                day = 15;
+                break;
+            case 3: 
+                day = 16;
+                break;
+            case 4: 
+                day = 17;
+                break;
+        }
+        
+        int hour = 9;
+        int minute = 0;
+        switch (slotIndex) {
+            case 0:
+                hour = 9;
+                minute = 0;
+                break;
+            case 1:
+                hour = 9;
+                minute = 30;
+                break;
+            case 2:
+                hour = 10;
+                minute = 0;
+                break;
+            case 3:
+                hour = 10;
+                minute = 30;
+                break;
+            case 4:
+                hour = 11;
+                minute = 0;
+                break;
+            case 5:
+                hour = 11;
+                minute = 30;
+                break;
+            case 6:
+                hour = 12;
+                minute = 0;
+                break;
+            case 7:
+                hour = 12;
+                minute = 30;
+                break;
+            case 8:
+                hour = 13;
+                minute = 0;
+                break;
+            case 9:
+                hour = 13;
+                minute = 30;
+                break;
+            case 10:
+                hour = 14;
+                minute = 0;
+                break;
+            case 11:
+                hour = 14;
+                minute = 30;
+                break;
+            case 12:
+                hour = 15;
+                minute = 0;
+                break;
+            case 13:
+                hour = 15;
+                minute = 30;
+                break;
+            case 14:
+                hour = 16;
+                minute = 0;
+                break;
+            case 15:
+                hour = 16;
+                minute = 30;
+                break;
+        }
+        
+        return new DateTime(year, month, day, hour, minute);
+    }
     
+    public static DateTime getSlotEndAsDateTime(int dayIndex, int slotIndex) {
+        DateTime startTime = getSlotStartAsDateTime(dayIndex, slotIndex);
+        return startTime.plusMinutes(30);
+    }
     
 }
