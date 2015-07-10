@@ -22,32 +22,32 @@
 		<h2>The current time is: </h2>
 		
 		<div>
-			<h3>Info</h3>
-			<p>Recently booked</p>
+			<h4>Your next meeting:</h4>
 			<div>
 				<table class="table table-striped">
 			    	<tr>
 			    		<td>Room Name</td>
-			    		<td>Booked For</td>
-			    		<td>Requestor</td>
+			    		<td>Organiser</td>
+			    		<td>Attendees</td>
 			    		<td>Time</td>
-			    		<td>*</td>
+			    		<td>Description</td>
 			    	</tr>
-			    	<tr th:each="room : ${rooms}">
-			    		<td>Room X</td>
-			    		<td>21232</td>
-			    		<td>Billy</td>
-			    		<td>March 24, 1874 11:20</td>
-			    		<td>*</td>
+			    	<tr>
+			    		<td th:text="${latestApt.room}">Room X</td>
+			    		<td th:text="${latestApt.organiser}">Billy</td>
+			    		<td th:text="${latestApt.requestedAttendees}">Billy, Dave</td>
+			    		<td th:text="${latestApt.timeSlot}">March 24, 1874 11:20</td>
+			    		<td th:text="${latestApt.description}">Description</td>
 			    	</tr>
 		    	</table>
 			</div>
-			<p>Room Name</p>
-			<p>Time and Date</p>
-			<p>Brief info</p>
 		</div>
 		
-		<div>Ticker box here</div>
+		<div class="tickerBox">
+			<p>First test message</p>
+			<p>Here is the second message</p>
+			<p>This is the third message</p>
+		</div>
 		
 		<div>
 		  <a class="btn btn-primary" href="#" >Quick Book</a>
