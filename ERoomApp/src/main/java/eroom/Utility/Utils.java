@@ -52,7 +52,7 @@ public class Utils {
      * @throws IllegalArgumentException if time slot is not on the range [0, 16)
      */
     public static void checkTimeSlotIsValid(int timeSlot) {
-        if (timeSlot < 0 || timeSlot >= MAX_NUMBER_OF_DAYS) {
+        if (timeSlot < 0 || timeSlot >= MAX_NUMBER_OF_TIME_SLOTS) {
             throw new IllegalArgumentException("Time slot " + timeSlot +  " is invalid - must be between zero and " + MAX_NUMBER_OF_TIME_SLOTS);
         }
     }
