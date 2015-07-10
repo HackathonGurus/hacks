@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import eroom.Links;
 import eroom.calendar.Appointment;
@@ -24,7 +23,9 @@ public class AvailabilityController {
 		List<Appointment> usersApointments = new ArrayList<Appointment>();
 		
 		//A test person
-		usersApointments.add(new Appointment().withRoom("Rock"));
+		usersApointments.add(new Appointment().withRoom("Room 1").withDescription("Desc 1").withOrganiser("Person 1"));
+		usersApointments.add(new Appointment().withRoom("Room 2").withDescription("Desc 2").withOrganiser("Person 2"));
+		usersApointments.add(new Appointment().withRoom("Room 3").withDescription("Desc 3").withOrganiser("Person 3"));
 		
 		//Use the first person for testing sake
 		for(CalendarDay day : cal.getUsers().get(0).getDays().values()){
@@ -35,7 +36,7 @@ public class AvailabilityController {
 			}
 		}
 
-		model.addAttribute("apointments", usersApointments);
+		model.addAttribute("appointments", usersApointments);
 		
 		return "availability";
 	}

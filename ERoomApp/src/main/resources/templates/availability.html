@@ -26,17 +26,12 @@
 	    		<td>Time</td>
 	    		<td>*</td>
 	    	</tr>
-	    	<tr th:each="room : ${rooms}">
-	    		<td>Room X</td>
-	    		<td>21232</td>
-	    		<td>Billy</td>
-	    		<td>March 24, 1874 11:20</td>
-	    		<td>*</td>
-	    	
-	    	</tr>
-	    	
-	    	
-	    
+	    	<tr th:each="apt : ${appointments}">
+				<td th:text="${apt.room}">Room X</td>
+				<td th:text="${apt.description}">21232</td>
+				<td th:text="${apt.organiser}">Billy</td>
+				<td></td>
+			</tr>    
 	    </table>
 	    
 	    <a class="btn btn-primary" href="/welcome">Go Home</a>
