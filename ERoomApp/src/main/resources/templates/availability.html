@@ -12,18 +12,37 @@
 	<!--Custom CSS-->
 		<link rel="stylesheet" href="./css/style.css" />	
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-		
   </head>
   <body>
   
-	<div class='form animated flipInX'>
+	<div class='grid animated flipInX'>
 	    <h2>Availability</h2>
-	 	
-	 	
-	 	<p th:text=""></p>
+	    
+	    <table class="table table-striped">
+	    	<tr>
+	    		<td>Room Name</td>
+	    		<td>Booked For</td>
+	    		<td>Requestor</td>
+	    		<td>Time</td>
+	    		<td>*</td>
+	    	</tr>
+	    	<tr th:each="room : ${rooms}">
+	    		<td>Room X</td>
+	    		<td>21232</td>
+	    		<td>Billy</td>
+	    		<td>March 24, 1874 11:20</td>
+	    		<td>*</td>
+	    	
+	    	</tr>
+	    	
+	    	
+	    
+	    </table>
+	    
+	    <a class="btn btn-primary" href="/">Go Home</a>
+	 
 	</div>
-	
-	<a class="btn btn-primary" href="/">Go Home</a>
+
 
   </body>
 
