@@ -30,7 +30,11 @@
 				<td th:text="${apt.room}">Room X</td>
 				<td th:text="${apt.description}">21232</td>
 				<td th:text="${apt.organiser}">Billy</td>
-				<td></td>
+				<td>Time Slot</td>
+				<td><a class="btn btn-info" href="/bookingDetails" th:href="@{/bookingDetails(apptRoom=${apt.room},
+				 	apptDesc=${apt.description},
+				  apptOrg=${apt.organiser},				  
+				  )}">Info</a></td>
 			</tr>    
 	    </table>
 	    
