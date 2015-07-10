@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import eroom.ERoomAppApplication;
 import eroom.Links;
 import eroom.calendar.Appointment;
 import eroom.calendar.Calendar;
@@ -17,8 +18,6 @@ public class AvailabilityController {
 	
 	@RequestMapping(Links.AVAILABILITY)
 	public String availabilityHome(Model model){
-		//Should maybe be the Cal from the session or a shared instance
-		Calendar cal = new Calendar();
 		
 		List<Appointment> usersApointments = new ArrayList<Appointment>();
 		
@@ -28,12 +27,9 @@ public class AvailabilityController {
 		usersApointments.add(new Appointment().withRoom("Room 3").withDescription("Desc 3").withOrganiser("Person 3"));
 		
 		//Use the first person for testing sake
-		for(CalendarDay day : cal.getUsers().get(0).getDays().values()){
-			for(Appointment apt : day.getBookings().values()){
-				if(!apt.isFree()){
-					usersApointments.add(apt);
-				}		
-			}
+		CalendarDay day = ERoomAppApplication.getCalendar().getUsers().get(0).getDays().get(0);
+		for(Appointment apt : day.getBookings().values()){
+			usersApointments.add(apt);		
 		}
 
 		model.addAttribute("appointments", usersApointments);

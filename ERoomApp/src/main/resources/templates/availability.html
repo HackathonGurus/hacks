@@ -16,27 +16,29 @@
   <body>
   
 	<div class='grid animated flipInX'>
-	    <h2>Availability</h2>
+	    <h2>Today's Schedule:</h2>
 	    
-	    <table class="table table-striped">
-	    	<tr>
-	    		<td>Room Name</td>
-	    		<td>Booked For</td>
-	    		<td>Requestor</td>
-	    		<td>Time</td>
-	    		<td>*</td>
-	    	</tr>
-	    	<tr th:each="apt : ${appointments}">
-				<td th:text="${apt.room}">Room X</td>
-				<td th:text="${apt.description}">21232</td>
-				<td th:text="${apt.organiser}">Billy</td>
-				<td>Time Slot</td>
-				<td><a class="btn btn-info" href="/bookingDetails" th:href="@{/bookingDetails(apptRoom=${apt.room},
-				 	apptDesc=${apt.description},
-				  apptOrg=${apt.organiser},				  
-				  )}">Info</a></td>
-			</tr>    
-	    </table>
+	    <div class='scrollable'>
+		    <table class="table table-striped">
+		    	<tr>
+		    		<td><em>Room Name</em></td>
+		    		<td><em>Booked For</em></td>
+		    		<td><em>Requester</em></td>
+		    		<td><em>Time</em></td>
+		    		<td><em>Info</em></td>
+		    	</tr>
+		    	<tr th:each="apt : ${appointments}">
+					<td th:text="${apt.room}">Room X</td>
+					<td th:text="${apt.description}">21232</td>
+					<td th:text="${apt.organiser}">Billy</td>
+					<td>Time Slot</td>
+					<td><a class="btn btn-info" href="/bookingDetails" th:href="@{/bookingDetails(apptRoom=${apt.room},
+					 	apptDesc=${apt.description},
+					  apptOrg=${apt.organiser},				  
+					  )}">Info</a></td>
+				</tr>    
+		    </table>
+	    </div>
 	    
 	    <div>
 	       <a class="btn btn-primary" href="/welcome">Home</a>
