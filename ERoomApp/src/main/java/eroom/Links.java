@@ -8,7 +8,8 @@ public final class Links {
 	public static final String LOGIN = "/";
 	public static final String AVAILABILITY = "/avail";
 	public static final String WELCOME = "/welcome";
-	public static final String QUICK_LINK_TEST = "/test";	
+	public static final String QUICK_LINK_TEST = "/test";
+	public static final String BOOKING_DETAILS = "/bookingdetails";
 	
 	private static List<String> links  = new ArrayList<String>();
 	
@@ -18,6 +19,7 @@ public final class Links {
 		links.add(AVAILABILITY);
 		links.add(QUICK_LINK_TEST);
 		links.add(WELCOME);
+		links.add(BOOKING_DETAILS);
 	}
 	
 	

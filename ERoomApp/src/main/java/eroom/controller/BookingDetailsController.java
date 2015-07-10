@@ -9,16 +9,23 @@ import eroom.Links;
 import eroom.calendar.Calendar;
 
 @Controller
-public class AvailabilityController {
+public class BookingDetailsController {
+
 	
-	@RequestMapping(Links.AVAILABILITY)
-	public String availabilityHome(Model model){
+	@RequestMapping(Links.BOOKING_DETAILS)
+	public String bookingsHome(Model model){
 		//Should maybe be the Cal from the session or a shared instance
 		//Calendar cal = new Calendar();
 		
 		//model.addAttribute("rooms", cal.getRooms());
 		
-		return "availability";
+		return "bookingDetails";
 	}
-		
+	
+	//Send them to availability page
+	@RequestMapping(value="/back", method = RequestMethod.GET)
+	public String goToAvailabilityPage(){
+		return "redirect:"+Links.AVAILABILITY;
+	}
+	
 }

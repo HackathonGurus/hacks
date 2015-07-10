@@ -1,11 +1,20 @@
 package eroom.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import eroom.Links;
+
 @RestController
 public class ApplicationController {
+	
+	//Send them on their way
+	@RequestMapping(value="/goHome", method = RequestMethod.GET)
+	public String goHome(){
+		return "redirect:"+Links.WELCOME;
+	}
 	
 	private static final String template = "Welcome to E-Room, %s!";
 	
