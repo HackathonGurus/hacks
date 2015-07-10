@@ -130,4 +130,106 @@ public class Utils {
             default: return null;
         }
     }
+    
+    public String slotToStartTimeString(int slotNo) {
+		//slot 0 - 9:00
+    	switch (slotNo) {
+
+    	case 0:
+    		return "090000Z";
+    	case 1:
+    		return "093000Z";
+    	case 2:
+    		return "100000Z";
+    	case 3:
+    		return "103000Z";
+    	case 4:
+    		return "110000Z";
+    	case 5:
+    		return "113000Z";
+    	case 6:
+    		return "120000Z";
+    	case 7:
+    		return "123000Z";
+    	case 8:
+    		return "130000Z";
+    	case 9:
+    		return "133000Z";
+    	case 10:
+    		return "140000Z";
+    	case 11:
+    		return "143000Z";
+    	case 12:
+    		return "150000Z";
+    	case 13:
+    		return "153000Z";
+    	case 14:
+    		return "160000Z";
+    	case 15:
+    		return "163000Z";
+		default:
+			return "090000Z";
+		}
+    }
+    
+    public String slotToEndTimeString(int slotNo) {
+    	//slot 0 - 9:00
+    	switch (slotNo) {
+    	
+    	case 0:
+    		return "093000Z";
+    	case 1:
+    		return "100000Z";
+    	case 2:
+    		return "103000Z";
+    	case 3:
+    		return "110000Z";
+    	case 4:
+    		return "113000Z";
+    	case 5:
+    		return "120000Z";
+    	case 6:
+    		return "123000Z";
+    	case 7:
+    		return "130000Z";
+    	case 8:
+    		return "133000Z";
+    	case 9:
+    		return "140000Z";
+    	case 10:
+    		return "143000Z";
+    	case 11:
+    		return "150000Z";
+    	case 12:
+    		return "153000Z";
+    	case 13:
+    		return "160000Z";
+    	case 14:
+    		return "163000Z";
+    	case 15:
+    		return "170000Z";
+    	default:
+    		return "093000Z";
+    	}
+    }
+    
+    public String dayToDateString(int day) {
+		switch (day) {
+		case 0://Monday
+			return "20150713T";
+		case 1://Tuesday
+			return "20150714T";
+		case 2://Happy Days
+			return "20150715T";
+		case 3://Thursday
+			return "20150716T";
+		case 4://Friday
+			return "20150717T";
+
+		default:
+			return "20150713";
+		}
+    }
+    
+    
 }

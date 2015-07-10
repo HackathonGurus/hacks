@@ -33,20 +33,19 @@ public class Emailer {
     /** Session   */
     public Session session = Session.getDefaultInstance(properties);
 
-    //TODO: Sort this shit out
-	private String organizer;
+    public String organizer; // appointment
 
-	private String appointStart;
+	public String appointStart; //appoint 
 
-	private String appointEnd;
+	public String appointEnd; //appoint
 
-	private String location;
+	public String location; //location of meeting
 
-	private String description;
+	public String description; //meeting description
 
-	private String summary;
+	public String summary; //summary for meeting
 
-	private String recipientEmailAddress;
+	public String recipientEmailAddress;//really
     
     /**
      * Email the iCalendar out.
@@ -132,7 +131,7 @@ public class Emailer {
 
         //Theres all sorts of crazy shit you can put in
         //RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
-        //TZOFFSETFROM
+        //TZOFFSETFROM=GMT+1
         //TZOFFSETTO
         StringBuffer buffer = sb.append("BEGIN:VCALENDAR\n" +
                 "PRODID:-//Microsoft Corporation//Outlook 9.0 MIMEDIR//EN\n" +
@@ -150,9 +149,9 @@ public class Emailer {
                 " 000004377FE5C37984842BF9440448399EB02\n" +
                 "DTSTAMP:20051206T120102Z\n" + //t
                 "CATEGORIES:Meeting\n" +
-                "DESCRIPTION:"+description+"\n\n" + // DESCRIPTION BITCH
-                "SUMMARY:"+summary+"\n" + // BOLLOCKS
-                "PRIORITY:5\n" +//fk this
+                "DESCRIPTION:"+description+"\n\n" +
+                "SUMMARY:"+summary+"\n" + 
+                "PRIORITY:5\n" +
                 "CLASS:PUBLIC\n" +
                 "BEGIN:VALARM\n" +
                 "TRIGGER:PT1440M\n" +
