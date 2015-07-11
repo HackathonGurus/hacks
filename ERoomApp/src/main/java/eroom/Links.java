@@ -12,6 +12,7 @@ public final class Links {
 	public static final String BOOKING_DETAILS = "/bookingDetails";
 	public static final String ROOM_AVAILABILITY = "/room";
 	public static final String ERROR = "/error";
+	public static final String BOOKING = "/book";
 	
 	private static List<String> links  = new ArrayList<String>();
 		
