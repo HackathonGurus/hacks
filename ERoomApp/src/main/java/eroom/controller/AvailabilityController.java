@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import eroom.ERoomAppApplication;
 import eroom.Links;
+import eroom.Utility.Utils;
 import eroom.calendar.Appointment;
 import eroom.calendar.Calendar;
 import eroom.calendar.CalendarDay;
@@ -27,7 +28,7 @@ public class AvailabilityController {
 		usersApointments.add(new Appointment().withRoom("Room 3").withDescription("Desc 3").withOrganiser("Person 3"));
 		
 		//Use the first person for testing sake
-		CalendarDay day = ERoomAppApplication.getCalendar().getUsers().get(0).getDays().get(0);
+		CalendarDay day = Utils.getCurrentLoggedInUser().getDays().get(0);
 		for(Appointment apt : day.getBookings().values()){
 			usersApointments.add(apt);		
 		}
