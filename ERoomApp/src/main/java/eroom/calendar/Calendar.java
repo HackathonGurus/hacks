@@ -1,7 +1,6 @@
 package eroom.calendar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -28,9 +27,9 @@ public class Calendar {
     public Calendar() {
         initialiseRooms();
         initialiseUsers();
-        bookAppointment(new Appointment().withDay(0).withTimeSlot(0).withRequestedAttendees(Arrays.asList("user", "user1")).withDescription("Desc 0").withRoom("Room"));
-        bookAppointment(new Appointment().withDay(1).withTimeSlot(1).withRequestedAttendees(Arrays.asList("user")).withDescription("Desc 1").withRoom("Room"));
-        bookAppointment(new Appointment().withDay(2).withTimeSlot(2).withRequestedAttendees(Arrays.asList("user1")).withDescription("Desc 2").withRoom("Room"));
+        //bookAppointment(new Appointment().withDay(0).withTimeSlot(0).withRequestedAttendees(Arrays.asList("user", "user1")).withDescription("Desc 0").withRoom("Room"));
+        //bookAppointment(new Appointment().withDay(1).withTimeSlot(1).withRequestedAttendees(Arrays.asList("user")).withDescription("Desc 1").withRoom("Room"));
+        //bookAppointment(new Appointment().withDay(2).withTimeSlot(2).withRequestedAttendees(Arrays.asList("user1")).withDescription("Desc 2").withRoom("Room"));
     }
 
     /**
