@@ -98,10 +98,7 @@ public class Calendar {
             Utils.checkRoomNameIsValid(appointment.getRoom());
             Utils.checkDayIsValid(appointment.getDay());
             Utils.checkTimeSlotIsValid(appointment.getTimeSlot());
-            Utils.checkUserNameIsValid(appointment.getOrganiser());
-            for (String attendee : appointment.getRequestedAttendees()) {
-                Utils.checkUserNameIsValid(attendee);
-            }
+
 
         } catch (IllegalArgumentException e) {
             return false;
@@ -203,7 +200,6 @@ public class Calendar {
         HashMap<Integer, List<Integer>> freeSlots = new HashMap<Integer, List<Integer>>();
         int index = 0;
         for (String userName : userNames) {
-            Utils.checkUserNameIsValid(userName);
             freeSlots.put(index, getUser(userName).getDays().get(day).getFreeSlots());
             index++;
         }

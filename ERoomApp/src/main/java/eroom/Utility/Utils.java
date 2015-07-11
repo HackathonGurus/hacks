@@ -4,8 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.joda.time.DateTime;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
+import eroom.ERoomAppApplication;
 import eroom.schedulable.Room;
+import eroom.schedulable.User;
 
 /**
  * General class containing constants and general useful methods
@@ -41,11 +45,13 @@ public class Utils {
     public static final String ROOM_5_DESCRIPTION = "Room 5 Description";
 
     /* USER NAMES */
-    public static final String USER_1 = "User 1";
-    public static final String USER_2 = "User 2";
-    public static final String USER_3 = "User 3";
-    public static final String USER_4 = "User 4";
-    public static final String USER_5 = "User 5";
+    public static final String USER_1 = "TimP";
+    public static final String USER_2 = "user";
+    public static final String USER_3 = "user1";
+    public static final String USER_4 = "user2";
+    public static final String USER_5 = "user3";
+    
+    public static List<String> usersNames = Arrays.asList(USER_1, USER_2, USER_3, USER_4, USER_5);
 
     /**
      * Checks that a given time slot lies on the range [0, 16)
@@ -72,18 +78,6 @@ public class Utils {
     }
 
     /**
-     * Checks that a given user name is defined in a constant here
-     *
-     * @param name the user name to check
-     * @throws IllegalArgumentException if the user name is not pre-defined
-     */
-    public static void checkUserNameIsValid(String name) {
-        if (!getUserNames().contains(name)) {
-            throw new IllegalArgumentException("Couldn't find user with name " + name);
-        }
-    }
-
-    /**
      * Checks that a given room name is defined in a constant here
      *
      * @param name the room name to check
@@ -106,9 +100,9 @@ public class Utils {
      * @return a list of all pre-defined user names
      */
     public static List<String> getUserNames() {
-        return Arrays.asList(USER_1, USER_2, USER_3, USER_4, USER_5);
+        return usersNames;
     }
-
+    
     /**
      * @return a list of all pre-defined room names
      */
@@ -349,6 +343,11 @@ public class Utils {
     public static DateTime getSlotEndAsDateTime(int dayIndex, int slotIndex) {
         DateTime startTime = getSlotStartAsDateTime(dayIndex, slotIndex);
         return startTime.plusMinutes(30);
+    }
+    
+    public static User getCurrentLoggedInUser(){
+    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();     
+        return ERoomAppApplication.getCalendar().getUser(auth.getName());
     }
     
 }

@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import eroom.Links;
+import eroom.Utility.Utils;
 import eroom.calendar.Appointment;
 
 @Controller
@@ -16,6 +17,7 @@ public class WelcomeController {
 		//Test latest appointment
 		Appointment apt = new Appointment().withRoom("Room 1").withDescription("Desc 1").withOrganiser("Person 1");
 		
+		model.addAttribute("currentUser", Utils.getCurrentLoggedInUser().getName());
 		model.addAttribute("latestApt", apt);
 		
 		return "welcome";

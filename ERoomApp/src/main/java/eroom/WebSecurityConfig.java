@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
+import eroom.Utility.Utils;
+
 @Configuration
 @EnableWebMvcSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -16,10 +18,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         InMemoryUserDetailsManagerConfigurer<AuthenticationManagerBuilder> inMemoryAuth = 
         		auth.inMemoryAuthentication();
-        
-        inMemoryAuth.withUser("user").password("user").roles("USER");
-        inMemoryAuth.withUser("user1").password("user1").roles("USER");
-        //We can have different roles is we want
+  
+        for(String username : Utils.getUserNames()){
+        	 inMemoryAuth.withUser(username).password(username).roles("USER");
+        }
+       
     }
 	
 	@Override
