@@ -18,10 +18,6 @@ import javax.mail.internet.MimeMultipart;
 
 public class Emailer {
 
-	/** senders email */
-	private String sendersAddress = "";
-	//TODO: Change This to w/e
-
 	/** just using locahost... */
 	public static String HOST = "localhost";
     

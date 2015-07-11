@@ -236,11 +236,11 @@ public class Utils {
 		return sb.toString();
     }
 
-    public static String iCalendarDTEnd(int day, int timeToStart) {
+    public static String iCalendarDTEnd(int day, int timeToEnd) {
     	StringBuffer sb = new StringBuffer();
     	
     	sb.append(dayToDateString(day));
-    	sb.append(slotToStartTimeString(timeToStart));
+    	sb.append(slotToStartTimeString(timeToEnd));
     	
     	return sb.toString();
     }
