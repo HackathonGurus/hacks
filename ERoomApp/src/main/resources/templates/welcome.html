@@ -39,7 +39,7 @@
 			    		<td th:text="${latestApt.organiser}">Billy</td>
 			    		<td th:text="${latestApt.requestedAttendees}">Billy, Dave</td>
 			    		<td th:with="aptDay=${latestApt.day}" th:text="${latestApt.convertDayToDay(aptDay)}">Wed</td>
-			    		<td th:text="${latestApt.timeSlot}">March 24, 1874 11:20</td>
+			    		<td th:with="aptTime=${latestApt.timeSlot}" th:text="${latestApt.getFormattedTimeSlot()}">March 24, 1874 11:20</td>
 			    		<td th:text="${latestApt.description}">Description</td>
 			    	</tr>
 		    	</table>
