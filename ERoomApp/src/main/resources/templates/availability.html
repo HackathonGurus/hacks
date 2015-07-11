@@ -19,7 +19,7 @@
 	    <h2>Today's Schedule:</h2>
 	    
 	    <div class='scrollable'>
-		    <table class="table table-striped">
+		    <table class="table table-striped table-hover">
 		    	<tr>
 		    		<td><em>Room Name</em></td>
 		    		<td><em>Booked For</em></td>
@@ -28,14 +28,16 @@
 		    		<td><em>Info</em></td>
 		    	</tr>
 		    	<tr th:each="apt : ${appointments}">
-					<td th:text="${apt.room}">Room X</td>
-					<td th:text="${apt.description}">21232</td>
-					<td th:text="${apt.organiser}">Billy</td>
-					<td>Time Slot</td>
-					<td><a class="btn btn-info" href="/bookingDetails" th:href="@{/bookingDetails(apptRoom=${apt.room},
-					 	apptDesc=${apt.description},
-					  apptOrg=${apt.organiser},				  
-					  )}">Info</a></td>
+					<form action="#" th:action="@{/bookingDetails}" method="post">
+						<td th:text="${apt.room}">Room X</td>
+						<td th:text="${apt.description}">21232</td>
+						<td th:text="${apt.organiser}">Billy</td>
+						<td>Time Slot</td>
+						<td>
+							<input type="hidden"  th:value="${apt.id}" />
+							<button class="btn btn-info" type="submit">Info</button>						
+						</td>
+					</form>
 				</tr>    
 		    </table>
 	    </div>
@@ -45,11 +47,8 @@
 	       <a class="btn btn-primary" href="#" >Quick Book</a>
 		   <a class="btn btn-primary" href="#" >Best Availability</a>   
 		   <a class="btn btn-primary" href="/room" >Rooms</a>
-		</div>
-	 
+		</div>	 
 	</div>
-
-
   </body>
 
 </html>

@@ -150,5 +150,10 @@ body::before {
 
 @keyframes marquee {
     0%   { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
+    100% { transform: translate(-100%, 0); 
+}
+
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+  background-color: #62c462;
+  color:#eeeeee;
 }

@@ -33,9 +33,8 @@ public class AvailabilityController {
 			usersApointments.add(apt);		
 		}
 
-		model.addAttribute("appointments", usersApointments);
-		
+		model.addAttribute("appointments", usersApointments);		
 		return "availability";
 	}
-		
+			
 }
