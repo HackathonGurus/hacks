@@ -17,16 +17,16 @@ public class BookingDetailsController {
    @RequestMapping(value=Links.BOOKING_DETAILS, method = RequestMethod.POST)
    public String addStudent(@RequestParam String appointmentId, 
    Model model) { 
-	  for(CalendarDay calDay : ERoomAppApplication.getCalendar().getRoom("").getDays().values()){
-           for(Appointment apt : calDay.getBookings().values()){
-                 if(StringUtils.equals(apt.getId(), str2)){
-           }
-      } 
-	   
-      model.addAttribute("organiser", selectedAppointment.getOrganiser());
-      model.addAttribute("description", selectedAppointment.getDescription());
-      model.addAttribute("room", selectedAppointment.getRoom());      
-      model.addAttribute("attendees", selectedAppointment.getRequestedAttendees());      
+//	  for(CalendarDay calDay : ERoomAppApplication.getCalendar().getRoom("").getDays().values()){
+//           for(Appointment apt : calDay.getBookings().values()){
+//                 if(StringUtils.equals(apt.getId(), str2)){
+//           }
+//      } 
+//	   
+//      model.addAttribute("organiser", selectedAppointment.getOrganiser());
+//      model.addAttribute("description", selectedAppointment.getDescription());
+//      model.addAttribute("room", selectedAppointment.getRoom());      
+//      model.addAttribute("attendees", selectedAppointment.getRequestedAttendees());      
       return "bookingDetails";
    }
 	
