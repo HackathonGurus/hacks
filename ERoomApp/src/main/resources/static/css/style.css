@@ -124,3 +124,27 @@ body::before {
   padding: 40px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
+
+.marquee {
+    width: 450px;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.marquee p {
+    display: block;
+    padding-left: 100%;
+    float: left;
+    animation: marquee 15s linear infinite;
+}
+
+.marquee p:hover {
+    animation-play-state: paused
+}
+
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}

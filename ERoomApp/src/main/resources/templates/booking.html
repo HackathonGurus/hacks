@@ -1,3 +1,4 @@
+<<<<<<< Upstream, based on branch 'master' of https://github.com/HackathonGurus/hacks
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
@@ -57,3 +58,64 @@
   </body>
 
 </html>
+=======
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>ERoomApp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--  External Style -->	
+		<link rel="stylesheet" href="http://daneden.github.io/animate.css/animate.min.css" />
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" />	
+		
+	<!--Custom CSS-->
+		<link rel="stylesheet" href="./css/style.css" />	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+  </head>
+  <body>
+  
+	<div class='grid bookingForm animated flipInX'>
+	 	<h2>Book</h2>
+	 	
+	 	<form method="post">
+            <input placeholder="To: -, -" type="text" name="recipients"/>
+	 		<input placeholder="Subject" type="text" name="subject"/>
+	 		<input placeholder="Description" type="text" name="description"/>
+	 		<select>
+	 			<option>Start time 1</option>
+	 			<option>Start time 2</option>
+	 			<option>Start time 3</option>
+	 		</select>
+	 		<select>
+	 			<option>End time 1</option>
+	 			<option>End time 2</option>
+	 			<option>End time 3</option>
+	 		</select>
+	 		<select>
+	 			<option>Day 1</option>
+	 			<option>Day 2</option>
+	 			<option>Day 3</option>
+	 		</select>
+	 		<select>
+	 			<option>Room 1</option>
+	 			<option>Room 2</option>
+	 			<option>Room 3</option>
+	 		</select>
+            <a class="btn btn-primary" href="#">Book</a>
+        </form>
+        
+	 	<div>
+	 		<a class="btn btn-primary" href="/welcome">Home</a>
+	 		<a class="btn btn-primary" href="#">Book</a>
+	 		<a class="btn btn-primary" href="#">Best Availability</a>
+	 		<a class="btn btn-primary" href="/avail">Calendar</a>
+	 	</div>
+	</div>
+
+
+  </body>
+
+</html>
+>>>>>>> e9b6742 Changes to welcome added marquee
