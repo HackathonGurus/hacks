@@ -1,11 +1,9 @@
 package eroom.calendar;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 import eroom.Utility.Utils;
-import eroom.schedulable.User;
 
 /**
  * Hi friends
@@ -186,5 +184,9 @@ public class Appointment {
 	public String getId() {
 		return id;
 	}
-
+	
+	public String convertDayToDay(int day) {
+		return Utils.dayToDayString(day);
+	}
+	
 }

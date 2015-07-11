@@ -234,6 +234,24 @@ public class Utils {
 		}
     }
     
+    public static String dayToDayString(int day) {
+		switch (day) {
+		case 0:
+			return "Mon";
+		case 1://Tuesday.
+			return "Tue";
+		case 2://Happy Days..
+			return "Wed";
+		case 3://Thursday.
+			return "Thur";
+		case 4://Friday.
+			return "Fri";
+
+		default:
+			return "Mon";
+		}
+    }
+    
     public static String iCalendarDTStart(int day, int timeToStart) {
 		StringBuffer sb = new StringBuffer();
 		
