@@ -24,6 +24,7 @@ public final class Links {
 		links.add(BOOKING_DETAILS);
 		links.add(ROOM_AVAILABILITY);
 		links.add(ERROR);
+		links.add(BOOKING);
 	}	
 	
 	public static List<String> getLinks() {
