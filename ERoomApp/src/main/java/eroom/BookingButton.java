@@ -35,11 +35,15 @@ public class BookingButton {
 		// Don't want to comma delimit if only one recipient
 		if (emailAddresses.size() > 1) {
 			for (String email : emailAddresses) {
-			sb.append(email);
-			sb.append(", ");
+				sb.append(email);
+				sb.append(", ");
 			}
 			sb.replace(sb.length()-3, sb.length()-1, "");
+		
+		} else if (emailAddresses.size() == 1) {
+			sb.append(emailAddresses.get(0));
 		}
+		
 		String commaDelimitedEmailAddresses = sb.toString();// pass this to iCalendarConstructor
 		// Construct iCalendar
 		String iCalApointStartFormat = Utils.iCalendarDTStart(appointment.getDay(), appointment.getTimeSlot());
