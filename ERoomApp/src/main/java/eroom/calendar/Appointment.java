@@ -8,6 +8,8 @@ import eroom.Utility.Utils;
 import eroom.schedulable.User;
 
 /**
+ * Hi friends
+ * 
  * Appointment class - used to create and find calendar appointments.
  *
  * TODO need a way of turning an Appointment into a .ics file and vice-versa
