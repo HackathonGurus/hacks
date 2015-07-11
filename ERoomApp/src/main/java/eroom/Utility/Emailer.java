@@ -19,7 +19,7 @@ import javax.mail.internet.MimeMultipart;
 public class Emailer {
 
 	/** just using locahost... */
-	public static String HOST = "localhost";
+	public static String HOST = "10.26.13.109";
     
     /** Sys Properties    */
     public static Properties properties = System.getProperties();
@@ -143,7 +143,7 @@ public class Emailer {
 		Pattern rfc5322 = Pattern.compile("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
 		
 		if(rfc5322.matcher(recipientEmailAddress).matches()) {
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipientEmailAddress));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress("test@test.com"));
 		} else {
 			throw new IllegalArgumentException(recipientEmailAddress);
 		}
