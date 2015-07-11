@@ -10,14 +10,23 @@ import eroom.Utility.Emailer;
 import eroom.Utility.ICalendarConstructor;
 import eroom.Utility.Utils;
 import eroom.calendar.Appointment;
+import eroom.calendar.Calendar;
 
 public class BookingButton {
-
+	
+	/** List of all emails needed	 */
+	public List<String> emailAddresses;
+	
 	public void sendEmail(Appointment appointment) throws MessagingException, IOException {
-		String organizerEmail = ERoomAppApplication.getCalendar().getUser(appointment.getOrganiser()).getEmailAddress();
+		Calendar cal = ERoomAppApplication.getCalendar();
+		String organizerEmail = cal.getUser(appointment.getOrganiser()).getEmailAddress();
 		//a.getRequestedAttendees();
+		
+		for (String attendee : appointment.getRequestedAttendees()) {
+			String userEmail = cal.getUser(attendee).getEmailAddress();
 
-		List<String> emailAddresses = appointment.getRequestedAttendees();
+		emailAddresses.add(userEmail);
+		}
 
 		StringBuffer sb = new StringBuffer();
 		// Don't want to comma delimit if only one recipient
@@ -32,12 +41,10 @@ public class BookingButton {
 		// Construct iCalendar
 		String iCalApointStartFormat = Utils.iCalendarDTStart(appointment.getDay(), appointment.getTimeSlot());
 		
-		String iCalApointEndFormat = Utils.iCalendarDTEnd(appointment.getDay(), appointment.getTimeSlot());//This needs to be timeslot end
+		String iCalApointEndFormat = Utils.iCalendarDTEnd(appointment.getDay(), (appointment.getTimeSlot()+1));
 		
 		Multipart iCalendar = ICalendarConstructor.iCalendarConstructor(commaDelimitedEmailAddresses, organizerEmail, iCalApointStartFormat, iCalApointEndFormat, appointment.getRoom(), appointment.getDescription(), appointment.getSummary());
 		
-		//Email(Multipart iCalendar, msgSubject, msgBody)
-		//Multipart iCalendar, String recipientEmailAddress, String msgSubject, String msgBody, String organizerEmail
 			for (String email : appointment.getRequestedAttendees()) {
 				Emailer.Email(iCalendar, email, appointment.getMsgSubject(), appointment.getMsgBody(), organizerEmail);
 			}

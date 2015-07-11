@@ -31,7 +31,7 @@ public class ICalendarConstructor {
                 "VERSION:2.0\n" +
                 "METHOD:REQUEST\n" +
                 "BEGIN:VEVENT\n" +
-                "ATTENDEE;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:"+commaDelimitedEmailAddresses+"\n" + //jordan@lyndons.net //TODO: pull in all recipients and file them in here
+                "ATTENDEE;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:"+commaDelimitedEmailAddresses+"\n" + //jordan@lyndons.net
                 "ORGANIZER:MAILTO:"+organizerEmail+"\n" + //jordan@lyndons.net
                 "DTSTART:"+appointStart+"\n" + //20051208T053000Z
                 "DTEND:"+appointEnd+"\n" + //20051208T060000Z
