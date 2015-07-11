@@ -27,12 +27,12 @@
 			<div>
 				<table class="table table-striped">
 			    	<tr>
-			    		<td>Room Name</td>
-			    		<td>Organiser</td>
-			    		<td>Attendees</td>
-			    		<td>Day</td>
-			    		<td>Time</td>
-			    		<td>Description</td>
+			    		<td><em>Room Name</em></td>
+			    		<td><em>Organiser</em></td>
+			    		<td><em>Attendees</em></td>
+			    		<td><em>Day</em></td>
+			    		<td><em>Time</em></td>
+			    		<td><em>Description</em></td>
 			    	</tr>
 			    	<tr>
 			    		<td th:text="${latestApt.room}">Room X</td>
@@ -55,8 +55,9 @@
 		<div>
 		  <form th:action="@{/logout}" method="post">
 		  <a class="btn btn-primary" href="/book" >Quick Book</a>
-		  <a class="btn btn-primary" href="/avail" >Today's Schedule</a>
 		  <a class="btn btn-primary" href="/bestAvailBook" >Best Availability</a>
+		  <a class="btn btn-primary" href="/avail" >My Schedule</a>
+		  <a class="btn btn-primary" href="/room" >Rooms</a>
             <input class="btn btn-primary" type="submit" value="Sign Out"/>
           </form>
 		</div>

@@ -94,17 +94,17 @@ body::before {
 
 .grid {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 40%;
   background: #fff;
-  width: 30%;
+  width: 40%;
   margin: -140px 0 0 -182px;
   padding: 40px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
 .bookingForm {
-	top: 20%;
+	top: 30%;
 }
 
 .scrollable table tbody { 
