@@ -32,6 +32,8 @@ public class BookingController {
             @RequestParam(required = true) String timeSlot,
             @RequestParam(required = true) String day,
             @RequestParam(required = true) String room) throws MessagingException, IOException {
+    	
+    	String[] toSplit = BestAvailabilityBookingController.splitAndTrim(to);
         
         Appointment newApp = new Appointment();
         newApp.setMsgSubject(subject);
@@ -39,7 +41,7 @@ public class BookingController {
         newApp.setTimeSlot(Integer.parseInt(timeSlot));
         newApp.setDay(Integer.parseInt(String.valueOf(day.charAt(day.length() - 1))));
         newApp.setOrganiser(Utils.getCurrentLoggedInUser().getName());
-        newApp.setRequestedAttendees(Arrays.asList("user1"));
+        newApp.setRequestedAttendees(Arrays.asList(toSplit));
         newApp.setRoom(room);
         // ...and build appointment up
         

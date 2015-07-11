@@ -19,7 +19,7 @@
 	 	<h2>Book</h2>
 	 	
 	 	<form th:action="@{/book}" method="post">
-            <input placeholder="To: -, -" type="text" name="to" required="true" />
+            <input placeholder="To (, seperated)" type="text" name="to" required="true"/>
 	 		<input placeholder="Subject" type="text" name="subject" required="true" />
 	 		<input placeholder="Description" type="text" name="details" required="true" />
 	 		<input placeholder="Time slot (int)" type="number" min="0" max="15" name="timeSlot" required="true" />

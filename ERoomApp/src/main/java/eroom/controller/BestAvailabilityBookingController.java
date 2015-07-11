@@ -72,7 +72,7 @@ public class BestAvailabilityBookingController {
         return "redirect:"+Links.WELCOME;
     }
 
-	private String[] splitAndTrim(String stringToSplit) {
+	public static String[] splitAndTrim(String stringToSplit) {
 		String[] dirtySplits = StringUtils.split(stringToSplit, ",");
 		List<String> results = new ArrayList<String>();
 		
