@@ -19,33 +19,11 @@
 	 	<h2>Book</h2>
 	 	
 	 	<form th:action="@{/book}" method="post">
-            <input placeholder="To: -, -" type="text" name="to"/>
-	 		<input placeholder="Subject" type="text" name="subject"/>
-	 		<input placeholder="Description" type="text" name="details"/>
-	 		<select name="timeSlot">
-	 			<option>0</option>
-	 			<option>1</option>
-	 			<option>2</option>
-	 			<option>3</option>
-	 			<option>4</option>
-	 			<option>5</option>
-	 			<option>6</option>
-	 			<option>7</option>
-	 			<option>8</option>
-	 			<option>9</option>
-	 			<option>10</option>
-	 			<option>11</option>
-	 			<option>12</option>
-	 			<option>13</option>
-	 			<option>14</option>
-	 			<option>15</option>
-	 			
-	 		</select>
-	 		<select name="day">
-	 			<option>Day 0</option>
-	 			<option>Day 1</option>
-	 			<option>Day 2</option>
-	 		</select>
+            <input placeholder="To: -, -" type="text" name="to" required="true" />
+	 		<input placeholder="Subject" type="text" name="subject" required="true" />
+	 		<input placeholder="Description" type="text" name="details" required="true" />
+	 		<input placeholder="Time slot (int)" type="number" min="0" max="15" name="timeSlot" required="true" />
+	 		<input placeholder="Day (int)" type="number" min="0" max="5" name="day" required="true"/>
 	 		<select name="room">
 	 			<option>Room 1</option>
 	 			<option>Room 2</option>

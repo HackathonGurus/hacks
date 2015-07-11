@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import eroom.BookingButton;
 import eroom.ERoomAppApplication;
 import eroom.Links;
 import eroom.Utility.Utils;
@@ -43,8 +44,7 @@ public class BookingController {
         // ...and build appointment up
         
         if (ERoomAppApplication.getCalendar().areSchedulesFree(newApp)) {
-            System.out.println("--- can Book: " + ERoomAppApplication.getCalendar().areSchedulesFree(newApp));
-            ERoomAppApplication.getCalendar().bookAppointment(newApp);
+            new BookingButton().onClick(newApp);
         }
         
         // TODO redirect somewhere different for successful bookings than for failed bookings
