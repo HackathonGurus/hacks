@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import eroom.Links;
 import eroom.Utility.Utils;
 import eroom.calendar.Appointment;
+import eroom.schedulable.User;
 
 @Controller
 public class WelcomeController {
@@ -14,11 +15,11 @@ public class WelcomeController {
 	@RequestMapping(Links.WELCOME)
 	public String welcomeHome(Model model)  {		
 		
-		//Test latest appointment
-		Appointment apt = new Appointment().withRoom("Room 1").withDescription("Desc 1").withOrganiser("Person 1");
+		User currentUser = Utils.getCurrentLoggedInUser();
+		Appointment latestApt = Utils.getNextAppointmentFor(currentUser);
 		
 		model.addAttribute("currentUser", Utils.getCurrentLoggedInUser().getName());
-		model.addAttribute("latestApt", apt);
+		model.addAttribute("latestApt", latestApt);
 		
 		return "welcome";
 	}
