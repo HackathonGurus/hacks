@@ -350,4 +350,59 @@ public class Utils {
         return ERoomAppApplication.getCalendar().getUser(auth.getName());
     }
     
+    public static int getCurrentDayIndex() {
+        
+        DateTime now = DateTime.now();
+        DateTime day1 = new DateTime(2015, 7, 13, 17, 0, 0);
+        DateTime day2 = new DateTime(2015, 7, 14, 17, 0, 0);
+        DateTime day3 = new DateTime(2015, 7, 15, 17, 0, 0);
+        DateTime day4 = new DateTime(2015, 7, 16, 17, 0, 0);
+        DateTime day5 = new DateTime(2015, 7, 17, 17, 0, 0);
+        
+        if (now.isBefore(day1)) {
+            return 0;
+        
+        } else if (now.isBefore(day2)) {
+            return 1;
+        
+        } else if (now.isBefore(day3)) {
+            return 2;
+        
+        } else if (now.isBefore(day4)) {
+            return 3;
+        
+        } else if (now.isBefore(day5)) {
+            return 4;
+        }
+        
+        return 0;
+    }
+    
+    public static int getCurrentTimeSlot() {
+        
+        DateTime now = DateTime.now();
+        int hour = now.getHourOfDay();
+        int minute = now.getMinuteOfHour();
+        
+        switch (hour) {
+            case 9: return timeSlotForHour(minute, 0, 1);
+            case 10:return timeSlotForHour(minute, 2, 3);
+            case 11:return timeSlotForHour(minute, 4, 5);
+            case 12:return timeSlotForHour(minute, 6, 7);
+            case 13:return timeSlotForHour(minute, 8, 9);
+            case 14:return timeSlotForHour(minute, 10, 11);
+            case 15:return timeSlotForHour(minute, 12, 13);
+            case 16:return timeSlotForHour(minute, 14, 15);
+        }
+        
+        return 0;
+    }
+    
+    private static int timeSlotForHour(int minute, int hourTimeSlot, int halfHourTimeSlot) {
+        if (minute < 30) {
+            return hourTimeSlot;
+        }
+        return halfHourTimeSlot;
+    }
+    
 }
