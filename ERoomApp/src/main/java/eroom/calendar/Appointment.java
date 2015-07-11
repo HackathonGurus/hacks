@@ -16,6 +16,15 @@ public class Appointment {
 
     /** A brief description of the appointment */
     private String description;
+    
+    /** a brief summary of the appointment */
+    private String summary;
+    
+    /** the subject line of the email */
+    private String msgSubject;
+    
+    /** the body of the email */
+    private String msgBody;
 
     /** The list of the names of all invitees */
     private List<String> requestedAttendees;
@@ -73,11 +82,11 @@ public class Appointment {
         this.organiser = organiser;
     }
 
-    public List<String> getRequestedAttendees() {
+    public List<String> getRequestedAttendees() { //TODO: is this an email?
         return requestedAttendees;
     }
 
-    public void setRequestedAttendees(List<String> requestedAttendees) {
+    public void setRequestedAttendees(List<String> requestedAttendees) { // TODO: is This an Email
         this.requestedAttendees = requestedAttendees;
     }
 
@@ -124,5 +133,29 @@ public class Appointment {
     public boolean isFree() {
         return false;
     }
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public String getMsgSubject() {
+		return msgSubject;
+	}
+
+	public void setMsgSubject(String msgSubject) {
+		this.msgSubject = msgSubject;
+	}
+
+	public String getMsgBody() {
+		return msgBody;
+	}
+
+	public void setMsgBody(String msgBody) {
+		this.msgBody = msgBody;
+	}
 
 }
