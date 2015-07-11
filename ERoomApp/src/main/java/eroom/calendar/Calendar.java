@@ -55,7 +55,10 @@ public class Calendar {
     private void initialiseUsers() {
         users = new ArrayList<User>();
         for (String name : Utils.getUserNames()) {
-            users.add(new User(name));
+        	User user = new User(name);
+        	user.setEmail("test@test.com");
+        	
+            users.add(user);
         }
     }
 

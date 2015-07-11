@@ -160,7 +160,11 @@ public class Appointment {
 	}
 
 	public String getMsgSubject() {
-		return msgSubject;
+		if(msgSubject != null){
+			return msgSubject;
+		}
+		
+		return summary;
 	}
 
 	public void setMsgSubject(String msgSubject) {
@@ -168,7 +172,11 @@ public class Appointment {
 	}
 
 	public String getMsgBody() {
-		return msgBody;
+		if(msgBody != null){
+			return msgBody;
+		}
+		
+		return description;
 	}
 
 	public void setMsgBody(String msgBody) {

@@ -12,6 +12,7 @@ import eroom.Utility.ICalendarConstructor;
 import eroom.Utility.Utils;
 import eroom.calendar.Appointment;
 import eroom.calendar.Calendar;
+import eroom.schedulable.User;
 
 public class BookingButton {
 	
@@ -27,7 +28,7 @@ public class BookingButton {
 		for (String attendee : appointment.getRequestedAttendees()) {
 			String userEmail = cal.getUser(attendee).getEmailAddress();
 
-		emailAddresses.add(userEmail);
+			emailAddresses.add(userEmail);
 		}
 
 		StringBuffer sb = new StringBuffer();
@@ -47,8 +48,11 @@ public class BookingButton {
 		
 		Multipart iCalendar = ICalendarConstructor.iCalendarConstructor(commaDelimitedEmailAddresses, organizerEmail, iCalApointStartFormat, iCalApointEndFormat, appointment.getRoom(), appointment.getDescription(), appointment.getSummary());
 		
-			for (String email : appointment.getRequestedAttendees()) {
-				Emailer.Email(iCalendar, email, appointment.getMsgSubject(), appointment.getMsgBody(), organizerEmail);
+			for (String attendee : appointment.getRequestedAttendees()) {
+				User user = ERoomAppApplication.getCalendar().getUser(attendee);
+				
+				
+				Emailer.Email(iCalendar, user.getEmailAddress(), appointment.getMsgSubject(), appointment.getMsgBody(), organizerEmail);
 			}
 	}
 

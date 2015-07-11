@@ -56,7 +56,7 @@ public class Utils {
     public static final String USER_4 = "user2";
     public static final String USER_5 = "user3";
     
-    public static List<String> usersNames = Arrays.asList(USER_1, USER_2, USER_3, USER_4, USER_5);
+	public static List<String> usersNames = Arrays.asList(USER_1, USER_2, USER_3, USER_4, USER_5);
     
    
 

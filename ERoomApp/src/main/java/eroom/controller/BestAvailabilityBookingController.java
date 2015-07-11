@@ -1,8 +1,11 @@
 package eroom.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.mail.MessagingException;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import eroom.BookingButton;
 import eroom.ERoomAppApplication;
 import eroom.Links;
 import eroom.Utility.Utils;
@@ -33,7 +37,7 @@ public class BestAvailabilityBookingController {
     		@RequestParam(required = true) String to,
     		@RequestParam(required = true) String subject,
     		@RequestParam(required = true) String details,
-    		@RequestParam(required = true) int day){
+    		@RequestParam(required = true) int day) throws MessagingException, IOException{
 		
 		User currentUser = Utils.getCurrentLoggedInUser();
 		String[] toSplit = splitAndTrim(to);
@@ -61,9 +65,10 @@ public class BestAvailabilityBookingController {
 			//Not yet implimented day dropdown
 			.withDay(day);
 			
-		currentUser.bookAppointment(aptToBook);
-		
-			
+		//currentUser.bookAppointment(aptToBook);
+		BookingButton bookingButton = new BookingButton();
+		bookingButton.onClick(aptToBook);
+	
         return "redirect:"+Links.WELCOME;
     }
 
