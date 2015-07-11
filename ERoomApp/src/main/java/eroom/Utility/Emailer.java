@@ -19,17 +19,17 @@ import javax.mail.internet.MimeMultipart;
 public class Emailer {
 
 	/** senders email */
-	private String sendersAddress = "jordan@lyndons.net";
+	private String sendersAddress = "";
 	//TODO: Change This to w/e
 
 	/** just using locahost... */
 	public static String HOST = "localhost";
     
     /** Sys Properties    */
-    public Properties properties = System.getProperties();
+    public static Properties properties = System.getProperties();
     
     /** Session   */
-    public Session session = Session.getDefaultInstance(properties);
+    public static Session session = Session.getDefaultInstance(properties);
 
     public String organizer; // appointment
 
@@ -55,11 +55,11 @@ public class Emailer {
      * @throws MessagingException -
      * @throws IOException -
      */
-    public static void Email(String recipientEmailAddress, String msgSubject, String msgBody) throws AddressException, MessagingException, IOException {
+    public static void Email(Multipart iCalendar, String recipientEmailAddress, String msgSubject, String msgBody, String organizerEmail) throws AddressException, MessagingException, IOException {
     	
-    //	Message msg = createMessage(recipientEmailAddress, msgSubject, msgBody);
+    	Message msg = createMessage(iCalendar, recipientEmailAddress, msgSubject, msgBody, organizerEmail);
     	
-    //	SendEmail(msg);
+    	SendEmail(msg);
     }
 
     /**
@@ -73,7 +73,7 @@ public class Emailer {
      * @throws MessagingException
      * @throws IOException
      */
-    private Message createMessage(String recipientEmailAddress, String msgSubject, String msgBody) throws AddressException, MessagingException, IOException {
+    private static Message createMessage(Multipart iCalendar, String recipientEmailAddress, String msgSubject, String msgBody, String organizerEmail) throws AddressException, MessagingException, IOException {
     	
     	MimeMessage message = new MimeMessage(session);
 
@@ -83,7 +83,7 @@ public class Emailer {
         message.addHeaderLine("component=VEVENT");
 
     	//Who's sending the email
-        message.setFrom(new InternetAddress(sendersAddress));
+        message.setFrom(new InternetAddress(organizerEmail));
 
         // make sure its a valid email
         checkValidEmailAddress(recipientEmailAddress, message);
@@ -91,7 +91,7 @@ public class Emailer {
         // the subject of email
         message.setSubject("E-Room Meeting :" + msgSubject);
 
-        buildMessageBody(message, msgBody);
+        buildMessageBody(message, msgBody, iCalendar);//down the rabbit hole
 
     	return message;
     }
@@ -103,7 +103,7 @@ public class Emailer {
 	 * @throws MessagingException
 	 * @throws IOException
 	 */
-	private void buildMessageBody(MimeMessage message, String msgBody) throws MessagingException, IOException {
+	private static void buildMessageBody(MimeMessage message, String msgBody, Multipart iCalendar) throws MessagingException, IOException {
 		// any content in email
 		BodyPart messageBody = new MimeBodyPart();
         messageBody.setText(msgBody);
@@ -111,20 +111,16 @@ public class Emailer {
         multipartBody.addBodyPart(messageBody);
         
         //now add in iCalendar Shit
-		// THIS HAS NOW MOVED TO ICALENDAR CONSTRUCTOR
-        //Multipart multipart = iCalendarConstructor();
+        Multipart multipart = iCalendar;
 
-        // Put all parts into message
-        
-        //TODO: CHANGE THIS WHEN YOU GET HOME
-        //message.setContent(multipart);
+        message.setContent(multipart);
 	}
 
 	/**
 	 * Fire Away!
 	 * @param msg
 	 */
-	private void SendEmail(Message msg) {
+	private static void SendEmail(Message msg) {
 	    // Setup mail server
 	    properties.setProperty("mail.smtp.host", HOST);
 	    
@@ -146,7 +142,7 @@ public class Emailer {
 	 * @throws MessagingException
 	 * @throws AddressException
 	 */
-	private void checkValidEmailAddress(String recipientEmailAddress, MimeMessage message)	throws MessagingException, AddressException {
+	private static void checkValidEmailAddress(String recipientEmailAddress, MimeMessage message)	throws MessagingException, AddressException {
 		// ISO Internet Message Format
 		Pattern rfc5322 = Pattern.compile("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
 		

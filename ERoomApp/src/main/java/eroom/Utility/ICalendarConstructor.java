@@ -19,7 +19,7 @@ public class ICalendarConstructor {
 	 * @throws MessagingException
 	 * @throws IOException
 	 */
-	public Multipart iCalendarConstructor(String commaDelimitedEmailAddresses, String organizerEmail, String appointStart, String appointEnd, String location, String description, String summary) throws MessagingException, IOException {
+	public static Multipart iCalendarConstructor(String commaDelimitedEmailAddresses, String organizerEmail, String appointStart, String appointEnd, String location, String description, String summary) throws MessagingException, IOException {
 		StringBuffer sb = new StringBuffer();
 
         //Theres all sorts of crazy shit you can put in
