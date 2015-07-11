@@ -104,6 +104,10 @@ body::before {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
+.bookingForm {
+	top: 20%;
+}
+
 .scrollable table tbody { 
 	height:20em;
 	overflow-y:scroll;

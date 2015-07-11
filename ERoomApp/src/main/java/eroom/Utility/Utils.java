@@ -8,7 +8,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import eroom.ERoomAppApplication;
+import eroom.calendar.Appointment;
 import eroom.schedulable.Room;
+import eroom.schedulable.ScheduleObject;
 import eroom.schedulable.User;
 
 /**
@@ -403,6 +405,32 @@ public class Utils {
             return hourTimeSlot;
         }
         return halfHourTimeSlot;
+    }
+    
+    public static Appointment getNextAppointmentFor(ScheduleObject schedule) {
+        for (int i = getCurrentDayIndex(); i < Utils.MAX_NUMBER_OF_DAYS; i++) {
+            if (i == getCurrentDayIndex()) {
+                Appointment app = findNextAppointmentFromTimeSlot(schedule, getCurrentDayIndex(), getCurrentTimeSlot());
+                if (app != null) {
+                    return app;
+                }
+            } else {
+                Appointment app = findNextAppointmentFromTimeSlot(schedule, getCurrentDayIndex(), 0);
+                if (app != null) {
+                    return app;
+                }
+            }
+        }
+        return null;
+    }
+    
+    private static Appointment findNextAppointmentFromTimeSlot(ScheduleObject schedule, int dayIndex, int timeSlot) {
+        for (int j = timeSlot; j < Utils.MAX_NUMBER_OF_TIME_SLOTS; j++) {
+            if (!schedule.getDays().get(dayIndex).getBookings().get(timeSlot).isFree()) {
+                return schedule.getDays().get(dayIndex).getBookings().get(timeSlot);
+            }
+        }
+        return null;
     }
     
 }
