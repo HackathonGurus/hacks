@@ -45,7 +45,7 @@ body::before {
   font-size: 18px;
   font-weight: 400;
 }
-.form input, .bookingForm input {
+.form input, .bookingForm input, .bookingForm select {
   outline: none;
   display: block;
   width: 100%;
@@ -67,7 +67,7 @@ body::before {
   -o-transition: 0.2s linear;
   transition: 0.2s linear;
 }
-.form input:focus, .bookingForm input:focus {
+.form input:focus, .bookingForm input:focus, .bookingForm select:focus {
   color: #333;
   border: 1px solid #1abc9c;
 }
