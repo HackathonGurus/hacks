@@ -189,4 +189,14 @@ public class Appointment {
 		return Utils.dayToDayString(day);
 	}
 	
+	public String formatInvitees() {
+		StringBuilder sb = new StringBuilder();
+		for (String invitee : requestedAttendees) {
+			sb.append(invitee);
+			sb.append(", ");
+		}
+		sb.replace(sb.length() - 2, sb.length(), "");
+		return sb.toString();
+	}
+	
 }

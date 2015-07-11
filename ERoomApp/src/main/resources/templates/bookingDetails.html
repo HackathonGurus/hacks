@@ -15,18 +15,18 @@
   </head>
   <body>
   
-	<div class='booking animated flipInX'>
-	    <h2>Booking Details</h2>
-	    <div class="row">
-	        <div class="col-sm-6 col-md-4 col-lg-2">
-	            <h2 th:text="${appointment.organiser}">Organiser</h2>
-	            <p th:text="${appointment.description}">Description here</p>
-	            
-	         </div>
-	        <div class="col-sm-6 col-md-4 col-lg-2">
-	            <h2 th:text="${appointment.room}">Organiser</h2>
-	            <p></p>
+	<div class='grid animated flipInX'>
+	    <h2>Booking Details - <span th:text="${appointment.description}">description</span></h2>
+	    <div class="">
+	        
+	        <div>
+	        	<p><em>Organiser:</em> <span th:text="${appointment.organiser}">organiser</span></p>
+	        	<p><em>Room:</em> <span th:text="${appointment.room}">room</span></p>
+	        	<p><em>Time:</em> <span th:text="${appointment.convertDayToDay(appointment.day)}">day</span> - <span th:text="${appointment.getFormattedTimeSlot()}">time</span></p>
+	        	<p><em>Invitees:</em> <span th:text="${appointment.formatInvitees()}">invitees</span></p>
+	        	<br />
 	        </div>
+	        
         </div>		
 	    <div>
 		    <a class="btn btn-primary" href="/back">Back</a>	    
