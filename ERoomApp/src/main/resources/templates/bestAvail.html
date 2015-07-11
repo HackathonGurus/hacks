@@ -15,18 +15,18 @@
   </head>
   <body>
   
-	<div class='grid animated flipInX'>
+	<div class='grid bookingForm animated flipInX'>
 	 	<h2>Best Available Booking</h2>
 	 	
-	 	
+	 
 	 	<form th:action="@{/bestAvailBook}" method="post"> 	
 	 		<input placeholder="To (, seperated)" type="text" name="to" required="true"/>
-	 		<input placeholder="Subject" type="text" name="subject" required="true"/>
-	 		<input placeholder="Details" type="text" name="details" required="true"/>
-	 		<input placeholder="Day (int)" type="number" min="0" max="5" name="day" required="true"/>
-
-            <input class="btn btn-primary" type="submit" value="Book"/>
+ 			<input placeholder="Subject" type="text" name="subject" required="true"/>
+ 			<input placeholder="Details" type="text" name="details" required="true"/>
+ 			<input placeholder="Day (int)" type="number" min="0" max="5" name="day" required="true"/>
+			<input class="btn btn-primary" type="submit" value="Book"/> 
         </form>
+        
 	 	
 	</div>
 
