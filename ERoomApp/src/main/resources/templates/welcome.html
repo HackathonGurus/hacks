@@ -21,6 +21,7 @@
 		<h2>Welcome, <span th:text="${currentUser}"></span></h2>
 		<h2 id='currentTime'>The current time is: </h2>
 		
+		
 		<div>
 			<h4>Your next meeting:</h4>
 			<div>
@@ -53,7 +54,7 @@
 		  <form th:action="@{/logout}" method="post">
 		  <a class="btn btn-primary" href="/book" >Quick Book</a>
 		  <a class="btn btn-primary" href="/avail" >Availability</a>
-		  <a class="btn btn-primary" href="#" >Best Availability</a>
+		  <a class="btn btn-primary" href="/bestAvailBook" >Best Availability</a>
             <input class="btn btn-primary" type="submit" value="Sign Out"/>
           </form>
 		</div>

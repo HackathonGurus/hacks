@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import eroom.ERoomAppApplication;
 import eroom.calendar.Appointment;
+import eroom.calendar.EmptyAppointment;
 import eroom.schedulable.Room;
 import eroom.schedulable.ScheduleObject;
 import eroom.schedulable.User;
@@ -421,7 +422,8 @@ public class Utils {
                 }
             }
         }
-        return null;
+        //All bets are off but this is nicer than null
+        return new EmptyAppointment();
     }
     
     private static Appointment findNextAppointmentFromTimeSlot(ScheduleObject schedule, int dayIndex, int timeSlot) {

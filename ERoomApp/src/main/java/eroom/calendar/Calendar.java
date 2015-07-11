@@ -28,7 +28,7 @@ public class Calendar {
     public Calendar() {
         initialiseRooms();
         initialiseUsers();
-        bookAppointment(new Appointment().withDay(0).withTimeSlot(0).withRequestedAttendees(Arrays.asList("user", "user1")).withDescription("Desc 0").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(1).withRequestedAttendees(Arrays.asList("user", "user1")).withDescription("Desc 0").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
         bookAppointment(new Appointment().withDay(1).withTimeSlot(1).withRequestedAttendees(Arrays.asList("user")).withDescription("Desc 1").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
         bookAppointment(new Appointment().withDay(2).withTimeSlot(2).withRequestedAttendees(Arrays.asList("user1")).withDescription("Desc 2").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
     }
@@ -239,11 +239,12 @@ public class Calendar {
      */
     public List<Appointment> getSuggestedAppointment(int day, String organiser, String... attendees) {
 
-        String[] allAttendees = attendees.clone();
-        allAttendees[allAttendees.length] = organiser;
+    	//Boo.. would like to use google guava
+        List<String> allAttendees = new ArrayList(Arrays.asList(attendees.clone()));
+        allAttendees.add(0, organiser);
 
-        List<Integer> commonFreeSlots = getCommonFreeSlots(day, allAttendees);
-        List<Room> roomsWithCapacity = getRoomsWithCapacity(allAttendees.length);
+        List<Integer> commonFreeSlots = getCommonFreeSlots(day, allAttendees.toArray(new String[allAttendees.size()]));
+        List<Room> roomsWithCapacity = getRoomsWithCapacity(allAttendees.size());
         Collections.sort(roomsWithCapacity);
 
         /*

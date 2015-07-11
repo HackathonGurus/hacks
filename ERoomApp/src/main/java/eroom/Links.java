@@ -13,6 +13,7 @@ public final class Links {
 	public static final String ROOM_AVAILABILITY = "/room";
 	public static final String ERROR = "/error";
 	public static final String BOOKING = "/book";
+	public static final String BEST_AVAIL_BOOKING = "/bestAvailBook";
 	
 	private static List<String> links  = new ArrayList<String>();
 		
@@ -25,6 +26,7 @@ public final class Links {
 		links.add(ROOM_AVAILABILITY);
 		links.add(ERROR);
 		links.add(BOOKING);
+		links.add(BEST_AVAIL_BOOKING);
 	}	
 	
 	public static List<String> getLinks() {

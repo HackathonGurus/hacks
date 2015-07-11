@@ -13,8 +13,8 @@ import eroom.schedulable.User;
 public class WelcomeController {
 	
 	@RequestMapping(Links.WELCOME)
-	public String welcomeHome(Model model)  {		
-		
+	public String welcomeHome(Model model)  {	
+
 		User currentUser = Utils.getCurrentLoggedInUser();
 		Appointment latestApt = Utils.getNextAppointmentFor(currentUser);
 		
