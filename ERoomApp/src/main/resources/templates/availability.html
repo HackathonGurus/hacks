@@ -32,9 +32,9 @@
 						<td th:text="${apt.room}">Room X</td>
 						<td th:text="${apt.description}">21232</td>
 						<td th:text="${apt.organiser}">Billy</td>
-						<td>Time Slot</td>
+						<td th:text="${apt.formattedTimeSlot}">Time Slot</td>
 						<td>
-							<input type="hidden"  th:value="${apt.id}" />
+							<input type="hidden" name="appointmentId" th:value="${apt.id}" />
 							<button class="btn btn-info" type="submit">Info</button>						
 						</td>
 					</form>

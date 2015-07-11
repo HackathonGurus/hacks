@@ -21,12 +21,7 @@ public class AvailabilityController {
 	public String availabilityHome(Model model){
 		
 		List<Appointment> usersApointments = new ArrayList<Appointment>();
-		
-		//A test person
-		usersApointments.add(new Appointment().withRoom("Room 1").withDescription("Desc 1").withOrganiser("Person 1"));
-		usersApointments.add(new Appointment().withRoom("Room 2").withDescription("Desc 2").withOrganiser("Person 2"));
-		usersApointments.add(new Appointment().withRoom("Room 3").withDescription("Desc 3").withOrganiser("Person 3"));
-		
+	
 		//Use the first person for testing sake
 		CalendarDay day = Utils.getCurrentLoggedInUser().getDays().get(0);
 		for(Appointment apt : day.getBookings().values()){

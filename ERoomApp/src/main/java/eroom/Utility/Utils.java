@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -55,6 +57,8 @@ public class Utils {
     public static final String USER_5 = "user3";
     
     public static List<String> usersNames = Arrays.asList(USER_1, USER_2, USER_3, USER_4, USER_5);
+    
+   
 
     /**
      * Checks that a given time slot lies on the range [0, 16)
@@ -433,6 +437,12 @@ public class Utils {
             }
         }
         return null;
+    }
+    
+    public static String getFormattedTime(DateTime dateTime) {
+    	 DateTimeFormatter fmt = DateTimeFormat.forPattern("HH:mma");
+    	 String formattedTime = fmt.print(dateTime);
+    	 return formattedTime;
     }
     
 }
