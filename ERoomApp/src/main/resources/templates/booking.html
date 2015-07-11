@@ -15,8 +15,42 @@
   </head>
   <body>
   
-	<div class='grid animated flipInX'>
+	<div class='grid bookingForm animated flipInX'>
 	 	<h2>Book</h2>
+	 	
+	 	<form method="post">
+            <input placeholder="To: -, -" type="text" name="recipients"/>
+	 		<input placeholder="Subject" type="text" name="subject"/>
+	 		<input placeholder="Description" type="text" name="description"/>
+	 		<select>
+	 			<option>Start time 1</option>
+	 			<option>Start time 2</option>
+	 			<option>Start time 3</option>
+	 		</select>
+	 		<select>
+	 			<option>End time 1</option>
+	 			<option>End time 2</option>
+	 			<option>End time 3</option>
+	 		</select>
+	 		<select>
+	 			<option>Day 1</option>
+	 			<option>Day 2</option>
+	 			<option>Day 3</option>
+	 		</select>
+	 		<select>
+	 			<option>Room 1</option>
+	 			<option>Room 2</option>
+	 			<option>Room 3</option>
+	 		</select>
+            <a class="btn btn-primary" href="#">Book</a>
+        </form>
+        
+	 	<div>
+	 		<a class="btn btn-primary" href="/welcome">Home</a>
+	 		<a class="btn btn-primary" href="#">Book</a>
+	 		<a class="btn btn-primary" href="#">Best Availability</a>
+	 		<a class="btn btn-primary" href="/avail">Calendar</a>
+	 	</div>
 	</div>
 
 

@@ -37,6 +37,7 @@ body::before {
   padding: 40px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
+
 .form h2 {
   margin: 0 0 20px;
   line-height: 1;
@@ -44,7 +45,7 @@ body::before {
   font-size: 18px;
   font-weight: 400;
 }
-.form input {
+.form input, .bookingForm input {
   outline: none;
   display: block;
   width: 100%;
@@ -66,7 +67,7 @@ body::before {
   -o-transition: 0.2s linear;
   transition: 0.2s linear;
 }
-.form input:focus {
+.form input:focus, .bookingForm input:focus {
   color: #333;
   border: 1px solid #1abc9c;
 }
