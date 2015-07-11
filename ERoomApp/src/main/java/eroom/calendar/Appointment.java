@@ -40,6 +40,7 @@ public class Appointment {
 
     /** The day index of the appointment */
     private int day;
+<<<<<<< Upstream, based on branch 'master' of https://github.com/HackathonGurus/hacks
     
     private final String id;
 

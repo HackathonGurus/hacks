@@ -33,7 +33,7 @@ public class BestAvailabilityBookingController {
     		@RequestParam(required = true) String to,
     		@RequestParam(required = true) String subject,
     		@RequestParam(required = true) String details,
-    		@RequestParam(required = true) String day){
+    		@RequestParam(required = true) int day){
 		
 		User currentUser = Utils.getCurrentLoggedInUser();
 		String[] toSplit = splitAndTrim(to);
@@ -41,7 +41,7 @@ public class BestAvailabilityBookingController {
 		
 		//Not yet implimented day dropdown
 		List<Appointment> availApts = ERoomAppApplication.getCalendar().getSuggestedAppointment(
-				1, 
+				day, 
 				currentUser.getName(), 
 				toSplit);
 		
@@ -59,7 +59,7 @@ public class BestAvailabilityBookingController {
 			//Choose the first one for now
 			.withTimeSlot(availAptOfInterest.getTimeSlot())
 			//Not yet implimented day dropdown
-			.withDay(1);
+			.withDay(day);
 			
 		currentUser.bookAppointment(aptToBook);
 		

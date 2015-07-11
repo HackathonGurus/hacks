@@ -28,7 +28,16 @@ public class Calendar {
     public Calendar() {
         initialiseRooms();
         initialiseUsers();
-        bookAppointment(new Appointment().withDay(0).withTimeSlot(1).withRequestedAttendees(Arrays.asList("user", "user1")).withDescription("Desc 0").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
+        
+        for(int i=0 ; i <= 9; i++){
+        	bookAppointment(new Appointment().withDay(0).withTimeSlot(i).withRequestedAttendees(Arrays.asList("user", "user1")).withDescription("Desc"+i).withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
+        }
+        
+        
+        
+        
+        
+       
         bookAppointment(new Appointment().withDay(1).withTimeSlot(1).withRequestedAttendees(Arrays.asList("user")).withDescription("Desc 1").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
         bookAppointment(new Appointment().withDay(2).withTimeSlot(2).withRequestedAttendees(Arrays.asList("user1")).withDescription("Desc 2").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
     }

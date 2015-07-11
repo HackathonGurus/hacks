@@ -420,7 +420,7 @@ public class Utils {
                     return app;
                 }
             } else {
-                Appointment app = findNextAppointmentFromTimeSlot(schedule, getCurrentDayIndex(), 0);
+                Appointment app = findNextAppointmentFromTimeSlot(schedule, i, 0);
                 if (app != null) {
                     return app;
                 }
@@ -432,8 +432,8 @@ public class Utils {
     
     private static Appointment findNextAppointmentFromTimeSlot(ScheduleObject schedule, int dayIndex, int timeSlot) {
         for (int j = timeSlot; j < Utils.MAX_NUMBER_OF_TIME_SLOTS; j++) {
-            if (!schedule.getDays().get(dayIndex).getBookings().get(timeSlot).isFree()) {
-                return schedule.getDays().get(dayIndex).getBookings().get(timeSlot);
+            if (!schedule.getDays().get(dayIndex).getBookings().get(j).isFree()) {
+                return schedule.getDays().get(dayIndex).getBookings().get(j);
             }
         }
         return null;
