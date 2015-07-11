@@ -1,6 +1,7 @@
 package eroom;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -22,6 +23,7 @@ public class BookingButton {
 		String organizerEmail = cal.getUser(appointment.getOrganiser()).getEmailAddress();
 		//a.getRequestedAttendees();
 		
+		emailAddresses = new ArrayList<String>();
 		for (String attendee : appointment.getRequestedAttendees()) {
 			String userEmail = cal.getUser(attendee).getEmailAddress();
 
@@ -50,8 +52,7 @@ public class BookingButton {
 			}
 	}
 
-	public void onClick() throws MessagingException, IOException {
-		Appointment appointment = new Appointment();
+	public void onClick(Appointment appointment) throws MessagingException, IOException {
 		ERoomAppApplication.getCalendar().bookAppointment(appointment);
 		sendEmail(appointment);
 	}

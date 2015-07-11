@@ -18,36 +18,30 @@
 	<div class='grid bookingForm animated flipInX'>
 	 	<h2>Book</h2>
 	 	
-	 	<form method="post">
-            <input placeholder="To: -, -" type="text" name="recipients"/>
+	 	<form th:action="@{/book}" method="post">
+            <input placeholder="To: -, -" type="text" name="to"/>
 	 		<input placeholder="Subject" type="text" name="subject"/>
-	 		<input placeholder="Description" type="text" name="description"/>
-	 		<select>
-	 			<option>Start time 1</option>
-	 			<option>Start time 2</option>
-	 			<option>Start time 3</option>
+	 		<input placeholder="Description" type="text" name="details"/>
+	 		<select name="timeSlot">
+	 			<option>Time slot 0</option>
+	 			<option>Time slot 1</option>
+	 			<option>Time slot 2</option>
 	 		</select>
-	 		<select>
-	 			<option>End time 1</option>
-	 			<option>End time 2</option>
-	 			<option>End time 3</option>
-	 		</select>
-	 		<select>
+	 		<select name="day">
+	 			<option>Day 0</option>
 	 			<option>Day 1</option>
 	 			<option>Day 2</option>
-	 			<option>Day 3</option>
 	 		</select>
-	 		<select>
+	 		<select name="room">
 	 			<option>Room 1</option>
 	 			<option>Room 2</option>
 	 			<option>Room 3</option>
 	 		</select>
-            <a class="btn btn-primary" href="#">Book</a>
+            <input class="btn btn-primary" type="submit" value="Book" />
         </form>
         
 	 	<div>
 	 		<a class="btn btn-primary" href="/welcome">Home</a>
-	 		<a class="btn btn-primary" href="#">Book</a>
 	 		<a class="btn btn-primary" href="#">Best Availability</a>
 	 		<a class="btn btn-primary" href="/avail">Calendar</a>
 	 	</div>
