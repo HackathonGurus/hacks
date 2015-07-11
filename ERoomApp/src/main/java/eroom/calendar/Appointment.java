@@ -1,10 +1,9 @@
 package eroom.calendar;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import eroom.Utility.Utils;
-import eroom.schedulable.User;
 
 /**
  * Appointment class - used to create and find calendar appointments.
@@ -39,9 +38,11 @@ public class Appointment {
 
     /** The day index of the appointment */
     private int day;
+    
+    private final String id;
 
     public Appointment() {
-
+    	this.id = UUID.randomUUID().toString();
     }
 
     public Appointment withOrganiser(String organiser) {
@@ -84,11 +85,11 @@ public class Appointment {
         this.organiser = organiser;
     }
 
-    public List<String> getRequestedAttendees() {
+    public List<String> getRequestedAttendees() { //TODO: is this an email?
         return requestedAttendees;
     }
 
-    public void setRequestedAttendees(List<String> requestedAttendees) {
+    public void setRequestedAttendees(List<String> requestedAttendees) { // TODO: is This an Email
         this.requestedAttendees = requestedAttendees;
     }
 
@@ -158,6 +159,10 @@ public class Appointment {
 
 	public void setMsgBody(String msgBody) {
 		this.msgBody = msgBody;
+	}
+	
+	public String getId() {
+		return id;
 	}
 
 }
