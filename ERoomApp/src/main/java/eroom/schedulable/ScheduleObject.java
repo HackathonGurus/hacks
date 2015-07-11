@@ -1,6 +1,8 @@
 package eroom.schedulable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import eroom.Utility.Utils;
 import eroom.calendar.Appointment;
@@ -46,5 +48,19 @@ public class ScheduleObject {
     public void bookAppointment(Appointment appointment) {
         Utils.checkDayIsValid(appointment.getDay());
         days.get(appointment.getDay()).bookSlot(appointment);
+    }
+    
+    public List<Appointment> getAllAppointments() {
+        List<Appointment> appointments = new ArrayList<Appointment>();
+        for (int day : days.keySet()) {
+            CalendarDay thisDay = days.get(day);
+            for (int slot : thisDay.getBookings().keySet()) {
+                Appointment app = thisDay.getBookings().get(slot);
+                if (!app.isFree()) {
+                    appointments.add(app);
+                }
+            }
+        }
+        return appointments;
     }
 }
