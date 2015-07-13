@@ -2,6 +2,7 @@
 
 // Get the current time element and update it to display the current time by default
 var currentTime = document.getElementById("currentTime");
+var currentDate = document.getElementById("currentDate");
 updateTime();
 
 // Set the updateTime method to trigger every second
@@ -18,5 +19,6 @@ function updateTime() {
 	if (minutes < 10) {
 		minutes = "0" + minutes;
 	}
-	currentTime.innerHTML = "The current time is: " + hours + ":" + minutes;
+	currentTime.innerHTML = hours + ":" + minutes;
 }
+

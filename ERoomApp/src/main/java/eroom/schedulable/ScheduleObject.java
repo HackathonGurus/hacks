@@ -63,4 +63,10 @@ public class ScheduleObject {
         }
         return appointments;
     }
+    
+    public void endAppointment(String appointmentId) {
+    	Appointment appointment = null;//TODO - Change to real appointment
+        HashMap<Integer, Appointment> bookings = days.get(appointment.getDay()).getBookings();
+        bookings.remove(appointment.getTimeSlot());
+    }
 }

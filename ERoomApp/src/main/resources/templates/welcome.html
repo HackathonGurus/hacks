@@ -2,30 +2,32 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 
-  <head>
-    <title>ERoomApp</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!--  External Style -->	
-		<link rel="stylesheet" href="http://daneden.github.io/animate.css/animate.min.css" />
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" />	
-	<!--Custom CSS-->
-		<link rel="stylesheet" href="./css/style.css" />	
+	<head>
+		<title>ERoomApp</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<!--  External Style -->
+		<link rel="stylesheet"	href="http://daneden.github.io/animate.css/animate.min.css" />
+		<link rel="stylesheet"	href="http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" />
+			
+		<!--Custom CSS-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-				
-	<!--  External JavaScript -->		
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>	
-  </head>
+		<link rel="stylesheet" href="css/style.css" />
+	
+		<!--  External JavaScript -->
+		<script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	</head>
   <body>
   
 	<div id='panel' class='grid animated flipInX'>
-		<h2>Welcome, <span th:text="${currentUser}"></span></h2>
-		<h2 id='currentTime'>The current time is: </h2>
-		
+		<h1>Welcome, <span th:text="${currentUser}"></span></h1>
+		<hgroup>
+			<h2>The current time is: </h2><h2 id='currentTime' class="box">00:00</h2>
+		</hgroup>
 		
 		<div>
 			<h4>Your next meeting:</h4>
 			<div>
-				<table class="table table-striped">
+				<table class="table table-striped table-hover">
 			    	<tr>
 			    		<td><em>Room Name</em></td>
 			    		<td><em>Organiser</em></td>
@@ -33,8 +35,9 @@
 			    		<td><em>Day</em></td>
 			    		<td><em>Time</em></td>
 			    		<td><em>Description</em></td>
+
 			    	</tr>
-			    	<tr>
+			    	<tr>			    	
 			    		<td th:text="${latestApt.room}">Room X</td>
 			    		<td th:text="${latestApt.organiser}">Billy</td>
 			    		<td th:text="${latestApt.formatInvitees()}">Billy, Dave</td>
@@ -67,8 +70,8 @@
 		
 	</div>
 	  
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->	
+	<script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
 	<script src="scripts/dateTime.js"></script>
   </body>
   

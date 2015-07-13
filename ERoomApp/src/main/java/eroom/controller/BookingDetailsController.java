@@ -14,15 +14,16 @@ import eroom.calendar.Calendar;
 
 @Controller
 public class BookingDetailsController {
+	
+	
 
    @RequestMapping(value=Links.BOOKING_DETAILS, method = RequestMethod.POST)
-   public String addStudent(@RequestParam String appointmentId, 
-   Model model) { 	   
-	  for(Appointment appointment : Utils.getCurrentLoggedInUser().getAllAppointments()){
-		  if(appointment.getId().equals(appointmentId)) {
-		      model.addAttribute("appointment", appointment);
-		  }
-      } 
+   public String displayBookingDetails(@RequestParam String appointmentId, 
+   Model model) { 
+	   Appointment appointment = getAppointment(appointmentId);
+	  if(appointment!= null) {
+		  model.addAttribute("appointment", appointment);
+	  }
       return "bookingDetails";
    }
 	
@@ -34,9 +35,20 @@ public class BookingDetailsController {
 	
 	//End Booking and send them to availability page
 	@RequestMapping(value="/endBooking", method = RequestMethod.POST)
-	public String endBooking(){
+	public String endBooking(@RequestParam String appointmentId){
+		Appointment appointment = getAppointment(appointmentId);
+		
 		//TODO: End Booking first before redirect
 		return "redirect:"+Links.AVAILABILITY;
+	}
+	
+	private Appointment getAppointment(String appointmentId) {
+		  for(Appointment appointment : Utils.getCurrentLoggedInUser().getAllAppointments()){
+			  if(appointment.getId().equals(appointmentId)) {
+				  return appointment;
+			  }
+	      }
+		return null;
 	}
 	
 }
