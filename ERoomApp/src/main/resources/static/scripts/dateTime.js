@@ -4,10 +4,17 @@
 var currentTime = document.getElementById("currentTime");
 var currentDate = document.getElementById("currentDate");
 updateTime();
-updateDate();
+//updateDate();
 
 // Set the updateTime method to trigger every second
 setInterval(updateTime, 1000);
+
+$(document).ready(function() {  
+	 setInterval(function() {
+	    $('.box').animate( { color: '#40e0d0' }, 300)
+	    .animate( { color: '#049cdb' }, 300); 
+	    }, 1000);
+	 });
 
 // Display the current time in a nice format
 function updateTime() {
@@ -25,25 +32,26 @@ function updateTime() {
 		seconds = "0" + seconds;
 	}
 	currentTime.innerHTML = hours + ":" + minutes + ":" + seconds;
+	
+	var montharray=new Array("January","February","March","April","May","June",
+            "July","August","September","October","November","December")
+	var strDate = 'd-m-Y'
+	  .replace('Y', dt.getFullYear())
+	  .replace('m', montharray[dt.getMonth()])
+	  .replace('d', dt.getDate());
+	
+	if(currentDate){
+		currentDate.innerHTML = strDate;
+	}	
 }
 
 function updateDate() {
 	var today = new Date();
-	var montharray=new Array("January","February","March","April","May","June",
-            "July","August","September","October","November","December")
-	var strDate = 'd-m-Y'
-	  .replace('Y', today.getFullYear())
-	  .replace('m', montharray[today.getMonth()])
-	  .replace('d', today.getDate());
+
 	
 	
 	currentDate.innerHTML = strDate;
 }
 
-$(document).ready(function() {  
-	 setInterval(function() {
-	    $('.box').animate( { color: '#40e0d0' }, 300)
-	    .animate( { color: '#049cdb' }, 300); 
-	    }, 1000);
-	 });
+
 
