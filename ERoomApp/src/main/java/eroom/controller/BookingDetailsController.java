@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import eroom.ERoomAppApplication;
 import eroom.Links;
 import eroom.Utility.Utils;
 import eroom.calendar.Appointment;
@@ -37,7 +38,10 @@ public class BookingDetailsController {
 	@RequestMapping(value="/endBooking", method = RequestMethod.POST)
 	public String endBooking(@RequestParam String appointmentId){
 		Appointment appointment = getAppointment(appointmentId);
-		
+		if(ERoomAppApplication.getCalendar().freeUpAppointment(appointment)) {
+			//return "<script> alert('Booking was ended'); </script>";
+			return "redirect:"+Links.AVAILABILITY;
+		}
 		//TODO: End Booking first before redirect
 		return "redirect:"+Links.AVAILABILITY;
 	}

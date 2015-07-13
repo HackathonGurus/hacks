@@ -34,10 +34,14 @@
 	        	<span id="currentTime" class="whiteh1">00:00</span>
 	            <p><span class="whiteh4" style="border-spacing: 10px;"><b>Today</b></span><span class="whiteh4" id="currentDate" style="border-spacing: 10px;">12/07/2015</span></p>
 	        </div>
-		    <div class="childFooter">	    
-			    <a class="btn btn-primary" href="/endBooking">End Booking</a>	
+		    <div class="childFooter">	
+		    <form action="#" th:action="@{/endBooking}" method="post">    
+		    	<input type="hidden" name="appointmentId" th:value="${appointment.id}" />
+			    <button class="btn btn-primary" type="submit">End Booking</button>	
+			 
 			    <a class="btn btn-primary" href="/back">Back</a>	    
 			    <a class="btn btn-primary" href="/welcome">Home</a>
+			    </form>
 		    </div>		        
         </div>		
  

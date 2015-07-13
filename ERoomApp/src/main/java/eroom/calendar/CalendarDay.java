@@ -51,6 +51,12 @@ public class CalendarDay {
         Utils.checkTimeSlotIsValid(appointment.getTimeSlot());
         bookings.put(appointment.getTimeSlot(), appointment);
     }
+    
+    public void freeSlot(Appointment appointment) {
+        Utils.checkTimeSlotIsValid(appointment.getTimeSlot());
+        bookings.replace(appointment.getTimeSlot(), new EmptyAppointment());
+        HashMap<Integer, Appointment> books = bookings;
+    }
 
     /**
      * @return a list of all free slots in this calendar day

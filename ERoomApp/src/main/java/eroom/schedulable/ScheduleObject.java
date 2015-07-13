@@ -50,6 +50,11 @@ public class ScheduleObject {
         days.get(appointment.getDay()).bookSlot(appointment);
     }
     
+    public void freeAppointment(Appointment appointment) {
+        Utils.checkDayIsValid(appointment.getDay());
+        days.get(appointment.getDay()).freeSlot(appointment);
+    }
+    
     public List<Appointment> getAllAppointments() {
         List<Appointment> appointments = new ArrayList<Appointment>();
         for (int day : days.keySet()) {
@@ -62,11 +67,5 @@ public class ScheduleObject {
             }
         }
         return appointments;
-    }
-    
-    public void endAppointment(String appointmentId) {
-    	Appointment appointment = null;//TODO - Change to real appointment
-        HashMap<Integer, Appointment> bookings = days.get(appointment.getDay()).getBookings();
-        bookings.remove(appointment.getTimeSlot());
-    }
+    }    
 }

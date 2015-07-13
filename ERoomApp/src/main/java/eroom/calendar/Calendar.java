@@ -101,6 +101,25 @@ public class Calendar {
 
         return false;
     }
+    
+    /**
+     * Frees up an appointment. 
+     * @param appointment the appointment to be updated
+     * @return true if the appointment was updated was successful
+     */
+    public boolean freeUpAppointment(Appointment appointment) {
+        boolean appointmentIsValid = isAppointmentValid(appointment);
+        if(appointmentIsValid) {
+        	//Shit code to free appointments for all user, room and invitee
+        	getUser(appointment.getOrganiser()).freeAppointment(appointment);
+        	getRoom(appointment.getRoom()).freeAppointment(appointment);
+        	for(String invitee: appointment.getRequestedAttendees()) {
+        		getUser(invitee).freeAppointment(appointment);
+        	}
+        	return true;
+        }
+        return false;
+    }
 
     /**
      * Checks if the variables on a given appointment are valid (i.e. time slot must be between 0 and 15, there are no
