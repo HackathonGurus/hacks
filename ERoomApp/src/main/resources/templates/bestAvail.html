@@ -17,24 +17,52 @@
   <body>
   
 	<div class='grid bookingForm animated flipInX'>
-	 	<h1>Best Available Booking</h1>
 	 	
-	 
-	 	<form th:action="@{/bestAvailBook}" method="post"> 	
-	 		<input placeholder="To (, seperated)" type="text" name="to" required="true"/>
- 			<input placeholder="Subject" type="text" name="subject" required="true"/>
- 			<input placeholder="Details" type="text" name="details" required="true"/>
- 			<input placeholder="Day (int)" type="number" min="0" max="5" name="day" required="true"/>
-			<input class="btn btn-primary" type="submit" value="Book"/> 
-        </form>
+	 	<div th:if="${#lists.isEmpty(availApts)}" class="scrollable">	 	
+		 	<h1>Find Best Available Booking</h1> 	
+		 
+		 	<form th:action="@{/bestAvailBook}" method="post"> 	
+		 		<input placeholder="To (, seperated)" type="text" name="to" required="true"/>
+	 			<input placeholder="Subject" type="text" name="subject" required="true"/>
+	 			<input placeholder="Details" type="text" name="details" required="true"/>
+	 			<input placeholder="Day (int)" type="number" min="0" max="5" name="day" required="true"/>
+	
+				<input name="find" class="btn btn-primary" type="submit" value="Find"/> 
+				<input name="quickBook" class="btn btn-primary" type="submit" value="Quick Book"/> 
+	        </form>
+        </div>
         
-	 	<div>
+	 	
+	 	<!-- When we have available apts selected -->
+	 	<div th:if="${not #lists.isEmpty(availApts)}" class="scrollable">
+		    <h1>Best Available Bookings</h1>
+		    
+		    <table class="table table-striped table-hover">
+		    	<tr>
+		    		<td><em>Room Name</em></td>
+		    		<td><em>Time</em></td>
+		    		<td><em>Book</em></td>
+		    	</tr>
+		    	<tr th:each="apt : ${availApts}">			
+					<td th:text="${apt.room}">Room X</td>
+					<td th:text="${apt.formattedTimeSlot}">Time Slot X</td>
+					<td>
+						<form th:action="@{/bestAvailBookById}" method="post"> 	
+							<input type="hidden" name="appointmentId" th:value="${apt.id}" />
+							<input class="btn btn-primary" type="submit" value="Book"/> 
+						</form>
+					</td>	
+				</tr>
+			</table>
+		</div>
+		
+		<div>
 	       <a class="btn btn-primary" href="/welcome">Home</a> 
 	       <a class="btn btn-primary" href="/book">Quick Book</a> 
 	       <a class="btn btn-primary" href="/avail" >My Schedule</a>
 		   <a class="btn btn-primary" href="/room" >Rooms</a>
 		</div>
-	 	
+	
 	</div>
 
 
