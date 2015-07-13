@@ -12,7 +12,8 @@
 		<!--Custom CSS-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/style.css" />
-
+		
+		<!-- Custom JavaScript -->
 	</head>
   <body>
   
@@ -37,8 +38,10 @@
 						<td th:text="${apt.organiser}">Billy</td>
 						<td th:text="${apt.formattedTimeSlot}">Time Slot</td>
 						<td>
-							<input type="hidden" name="appointmentId" th:value="${apt.id}" />
-							<button class="btn btn-info" type="submit">Info</button>						
+							<input type="hidden" id="appointmentId" th:value="${apt.id}" />							
+							<div th:if="${!apt.free}">
+							<button class="btn btn-info" type="submit"  id="info">Info</button>		
+							</div>				
 						</td>
 					</form>
 				</tr>    
