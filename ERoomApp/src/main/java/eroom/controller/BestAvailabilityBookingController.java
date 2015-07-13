@@ -89,6 +89,8 @@ public class BestAvailabilityBookingController {
 			populateAndBookBasedOnAnother(subject, details, day,
 					toSplit, availAptOfInterest);
 			
+			nukeAllData(model);
+			
 			return "redirect:"+Links.AVAILABILITY;	
 		}
 		//Otherwise just continue and this controller takes care of displaying the available apts
