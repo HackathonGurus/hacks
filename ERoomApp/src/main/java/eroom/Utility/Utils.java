@@ -29,11 +29,11 @@ public class Utils {
     public static final int MAX_NUMBER_OF_DAYS = 5;
 
     /* ROOM NAMES */
-    public static final String ROOM_1 = "Room 1";
-    public static final String ROOM_2 = "Room 2";
-    public static final String ROOM_3 = "Room 3";
-    public static final String ROOM_4 = "Room 4";
-    public static final String ROOM_5 = "Room 5";
+    public static final String ROOM_1 = "CG3";
+    public static final String ROOM_2 = "CG6";
+    public static final String ROOM_3 = "CF2";
+    public static final String ROOM_4 = "CF4";
+    public static final String ROOM_5 = "CF5";
 
     /* ROOM CAPACITIES */
     public static final int ROOM_1_CAPACITY = 4;
@@ -51,14 +51,14 @@ public class Utils {
 
     /* USER NAMES */
     public static final String USER_1 = "TimP";
-    public static final String USER_2 = "user";
-    public static final String USER_3 = "user1";
-    public static final String USER_4 = "user2";
-    public static final String USER_5 = "user3";
+    public static final String USER_2 = "RobM";
+    public static final String USER_3 = "JordanS";
+    public static final String USER_4 = "RyanC";
+    public static final String USER_5 = "WilliamsA";
+    public static final String USER_6 = "user";
+    public static final String USER_7 = "user1";
     
-	public static List<String> usersNames = Arrays.asList(USER_1, USER_2, USER_3, USER_4, USER_5);
-    
-   
+	public static List<String> usersNames = Arrays.asList(USER_1, USER_2, USER_3, USER_4, USER_5, USER_6, USER_7);
 
     /**
      * Checks that a given time slot lies on the range [0, 16)

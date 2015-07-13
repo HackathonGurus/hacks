@@ -28,18 +28,20 @@ public class Calendar {
     public Calendar() {
         initialiseRooms();
         initialiseUsers();
-        
-        for(int i=0 ; i <= 9; i++){
-        	bookAppointment(new Appointment().withDay(0).withTimeSlot(i).withRequestedAttendees(Arrays.asList("user", "user1")).withDescription("Desc"+i).withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
-        }
-        
-        
-        
-        
-        
-       
-        bookAppointment(new Appointment().withDay(1).withTimeSlot(1).withRequestedAttendees(Arrays.asList("user")).withDescription("Desc 1").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
-        bookAppointment(new Appointment().withDay(2).withTimeSlot(2).withRequestedAttendees(Arrays.asList("user1")).withDescription("Desc 2").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_1));
+
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(0).withRequestedAttendees(Arrays.asList(Utils.USER_4, Utils.USER_7)).withDescription("Planning").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(1).withRequestedAttendees(Arrays.asList(Utils.USER_6, Utils.USER_2)).withDescription("Scheming").withRoom(Utils.ROOM_2).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(2).withRequestedAttendees(Arrays.asList(Utils.USER_5, Utils.USER_3)).withDescription("Plotting").withRoom(Utils.ROOM_5).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(3).withRequestedAttendees(Arrays.asList(Utils.USER_4)).withDescription("Business-ing").withRoom(Utils.ROOM_2).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(4).withRequestedAttendees(Arrays.asList(Utils.USER_3, Utils.USER_5)).withDescription("Meeting").withRoom(Utils.ROOM_4).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(5).withRequestedAttendees(Arrays.asList(Utils.USER_6, Utils.USER_2)).withDescription("Scheming").withRoom(Utils.ROOM_2).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(6).withRequestedAttendees(Arrays.asList(Utils.USER_1, Utils.USER_3, Utils.USER_4, Utils.USER_5)).withDescription("Planning").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(8).withRequestedAttendees(Arrays.asList(Utils.USER_6)).withDescription("Scheming").withRoom(Utils.ROOM_1).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(9).withRequestedAttendees(Arrays.asList(Utils.USER_1, Utils.USER_3)).withDescription("Plotting").withRoom(Utils.ROOM_3).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(10).withRequestedAttendees(Arrays.asList(Utils.USER_3, Utils.USER_4)).withDescription("Scheming").withRoom(Utils.ROOM_3).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(11).withRequestedAttendees(Arrays.asList(Utils.USER_4)).withDescription("Business-ing").withRoom(Utils.ROOM_2).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(12).withRequestedAttendees(Arrays.asList(Utils.USER_2)).withDescription("Meeting").withRoom(Utils.ROOM_5).withOrganiser(Utils.USER_7));
+        bookAppointment(new Appointment().withDay(0).withTimeSlot(15).withRequestedAttendees(Arrays.asList(Utils.USER_6)).withDescription("Scheming").withRoom(Utils.ROOM_4).withOrganiser(Utils.USER_5));
     }
 
     /**
