@@ -38,7 +38,7 @@
 						<td th:text="${apt.organiser}">Billy</td>
 						<td th:text="${apt.formattedTimeSlot}">Time Slot</td>
 						<td>
-							<input type="hidden" id="appointmentId" th:value="${apt.id}" />							
+							<input type="hidden" id="appointmentId" name="appointmentId" th:value="${apt.id}" />							
 							<div th:if="${!apt.free}">
 							<button class="btn btn-info" type="submit"  id="info">Info</button>		
 							</div>				
