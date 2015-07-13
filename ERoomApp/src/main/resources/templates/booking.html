@@ -36,6 +36,26 @@
 	 		</select>
             <input class="btn btn-primary" type="submit" value="Book" />
         </form>
+        <h3>Today's Schedule</h3>
+       <div class='scrollable'>
+		    <table class="table table-striped table-hover">
+		    	<tr>
+		    		<td><em>Room Name</em></td>
+		    		<td><em>Booked For</em></td>
+		    		<td><em>Requester</em></td>
+		    		<td><em>Time</em></td>
+		    		<td><em>Info</em></td>
+		    	</tr>
+		    	<tr th:each="apt : ${appointments}">
+					<form action="#" th:action="@{/bookingDetails}" method="post">
+						<td th:text="${apt.room}">Room X</td>
+						<td th:text="${apt.description}">21232</td>
+						<td th:text="${apt.organiser}">Billy</td>
+						<td th:text="${apt.formattedTimeSlot}">Time Slot</td>
+					</form>
+				</tr>    
+		    </table>
+	    </div>
         
 	 	<div>
 	 		<a class="btn btn-primary" href="/welcome">Home</a>
@@ -44,6 +64,8 @@
 	 		<a class="btn btn-primary" href="/room">Rooms</a>
 	 	</div>
 	</div>
+	
+	
   </body>
 
 </html>

@@ -1,7 +1,9 @@
 package eroom.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
@@ -16,12 +18,14 @@ import eroom.ERoomAppApplication;
 import eroom.Links;
 import eroom.Utility.Utils;
 import eroom.calendar.Appointment;
+import eroom.calendar.CalendarDay;
 
 @Controller
 public class BookingController {
 
     @RequestMapping(Links.BOOKING)
     public String bookingHome(Model model){
+    	loadModel(model);
         return "booking";
     }
     
@@ -31,7 +35,7 @@ public class BookingController {
             @RequestParam(required = true) String details,
             @RequestParam(required = true) String timeSlot,
             @RequestParam(required = true) String day,
-            @RequestParam(required = true) String room) throws MessagingException, IOException {
+            @RequestParam(required = true) String room, Model model) throws MessagingException, IOException {
     	
     	String[] toSplit = BestAvailabilityBookingController.splitAndTrim(to);
         
@@ -47,10 +51,22 @@ public class BookingController {
         
         if (ERoomAppApplication.getCalendar().areSchedulesFree(newApp)) {
             new BookingButton().onClick(newApp);
-        }
+        }   
         
         // TODO redirect somewhere different for successful bookings than for failed bookings
         return "redirect:" + Links.AVAILABILITY;
+    }
+    
+    private void loadModel(Model model) {
+		List<Appointment> usersApointments = new ArrayList<Appointment>();
+		
+		//Use the first person for testing sake
+		CalendarDay day = Utils.getCurrentLoggedInUser().getDays().get(0);
+		for(Appointment apt : day.getBookings().values()){
+			usersApointments.add(apt);		
+		}
+	
+		model.addAttribute("appointments", usersApointments);	
     }
     
 }
