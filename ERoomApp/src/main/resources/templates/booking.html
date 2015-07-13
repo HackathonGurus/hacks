@@ -2,22 +2,25 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 
-  <head>
-    <title>ERoomApp</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!--  External Style -->	
-		<link rel="stylesheet" href="http://daneden.github.io/animate.css/animate.min.css" />
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" />	
-		
-	<!--Custom CSS-->
-		<link rel="stylesheet" href="./css/style.css" />	
+	<head>
+		<title>ERoomApp</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<!--  External Style -->
+		<link rel="stylesheet"	href="http://daneden.github.io/animate.css/animate.min.css" />
+		<link rel="stylesheet"	href="http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" />
+			
+		<!--Custom CSS-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-  </head>
+		<link rel="stylesheet" href="css/style.css" />
+
+	</head>
   <body>
   
 	<div class='grid bookingForm animated flipInX'>
-	 	<h2>Book</h2>
-	 	
+	<hgroup>
+		<h1>Book</h1>
+	</hgroup>
+	 		
 	 	<form th:action="@{/book}" method="post">
             <input placeholder="To (, seperated)" type="text" name="to" required="true"/>
 	 		<input placeholder="Subject" type="text" name="subject" required="true" />
@@ -39,8 +42,6 @@
 	 		<a class="btn btn-primary" href="/room">Rooms</a>
 	 	</div>
 	</div>
-
-
   </body>
 
 </html>

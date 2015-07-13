@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 body {
-  background: #000000 url("http://www.flexiblespace.com/wp-content/uploads/2012/07/meeting-room-FSS-180GPS.jpg") no-repeat center center fixed;
+  background: #000000 url("http://www.decosee.com/picture/blue-white-living-room-wallpaper-design.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -26,6 +26,36 @@ body::before {
   background: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
+}
+
+h1 {
+  margin: 0 0 15px;
+  line-height: 1;
+  color: #049cdb;
+  font-size: 38px;
+  font-weight: 500;
+}
+
+h2 { 
+  display: inline;
+  color: #049cdb;
+ }
+ 
+ h4 { 
+  font-weight: bold;
+ }
+
+hgroup {
+	padding: 15px 0px;
+}
+
+p {
+	color: #049cdb;
+}
+
+td {
+	color: #036b98;
+	font-weight:bold;
 }
 
 .form {
@@ -72,7 +102,7 @@ body::before {
 
 .form input:focus, .bookingForm input:focus, .bookingForm select:focus {
   color: #333;
-  border: 1px solid #1abc9c;
+  border: 1px solid #40e0d0;
 }
 
 .form button {
@@ -95,7 +125,7 @@ body::before {
 }
 
 .form button:hover {
-  background: #1abc9c;
+  background: #40e0d0;
 }
 
 .grid {
@@ -135,7 +165,7 @@ body::before {
 }
 
 .marquee {
-    width: 450px;
+    width: 80%;
     margin: 0 auto;
     white-space: nowrap;
     overflow: hidden;
@@ -146,7 +176,8 @@ body::before {
     display: block;
     padding-left: 100%;
     float: left;
-    animation: marquee 15s linear infinite;
+    animation: marquee 20s linear infinite;
+    color: #f39412;
 }
 
 .marquee p:hover {
@@ -164,6 +195,69 @@ body::before {
 }
 
 .darkdiv {
-  background-color: #1c1c1c;
+  background-color: #0377a9;
   color:#eeeeee;
+}
+
+.parent {
+	background: gray;
+  /* inline-block hack */
+  font-size: 0;
+  text-align: center;
+}
+
+.childC1 {
+  width: 40%;
+  height: 300px;
+  margin: 0 10px;
+  /* inline-block hack */
+  display: inline-block;
+  font-size: medium;
+  text-align: left;
+  float:left;
+  cellpadding: 18px; 
+}
+
+.childC2 {
+  width: 50%;
+  height: 300px;
+  margin: 0 10px;
+  background: #0377a9;
+  /* inline-block hack */
+  display: inline-block;
+  font-size: medium;
+  text-align: left;
+  float:right;
+  padding:20px;
+}
+
+.childFooter {
+  width: 70%;
+  height: 50%;
+  margin: 0px 10px;
+  float:bottom;
+}
+
+.whiteh1 {
+  margin: 0 0 15px;
+  line-height: 1;
+  color: #fff;
+  font-size: 38px;
+  font-weight: 500;
+}
+
+.whiteh4 {
+  margin: 0 0 15px;
+  line-height: 1;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.torquoise {
+	color: #40e0d0;
+}
+
+.error {
+	color:#D8000C;
 }

@@ -3,29 +3,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
-<head>
-<title>ERoomApp</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<!--  External Style -->
-<link rel="stylesheet"
-	href="http://daneden.github.io/animate.css/animate.min.css" />
-<link rel="stylesheet"
-	href="http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" />
-<!--Custom CSS-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/style.css" />
-
-
-<!--  External JavaScript -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-</head>
+	<head>
+		<title>ERoomApp</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<!--  External Style -->
+		<link rel="stylesheet"	href="http://daneden.github.io/animate.css/animate.min.css" />
+		<link rel="stylesheet"	href="http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700italic,700" />
+			
+		<!--Custom CSS-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	
+		<!--  External JavaScript -->
+		<script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	</head>
 <body>
 
 	<div class='form animated flipInX'>
-		<h2>E-Room</h2>
+	<hgroup>
+		<h1>E-Room</h1>
 		<h2>Login To Your Account</h2>
-
+		</hgroup>
 		<p th:if="${param.error}" class="text-danger">
             Invalid username and/or password.
         </p>
@@ -43,9 +41,6 @@
         	but when we demo we may wish to remove this -->
         <p>try user:user or user1:user1</p>
 	</div>
-
-	<!-- Latest compiled and minified JavaScript -->
-	<!-- <script src="scripts/script.js"></script> -->
 </body>
 
 </html>
